@@ -1,0 +1,15 @@
+html, body {
+  margin: 0; padding: 0;
+  height: 100%;
+}
+.json-diff-input {
+  width: 50%;
+  height: 100%;
+  box-sizing: border-box;
+  display: inline-block;
+  float: left;
+}
+
+.json-diff-input .CodeMirror {
+  height: 100%;
+}
