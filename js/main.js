@@ -41,28 +41,24 @@
   };
 
   JsonInputView.prototype.highlightRemoval = function (diff) {
-    var beginPos = findPositionOfKey(this.getText(), diff);
-    var endPos = findEndPositionOfValue(this.getText(), diff);
-    this.codemirror.markText(beginPos, endPos, {
-      css: 'background-color: red'
-    });
+    this._highlight(diff, 'red');
   };
 
   JsonInputView.prototype.highlightAddition = function (diff) {
-    var beginPos = findPositionOfKey(this.getText(), diff);
-    var endPos = findEndPositionOfValue(this.getText(), diff);
-    this.codemirror.markText(beginPos, endPos, {
-      css: 'background-color: blue'
-    });
+    this._highlight(diff, 'blue');
   };
 
   JsonInputView.prototype.highlightChange = function (diff) {
-    var beginPos = findPositionOfKey(this.getText(), diff);
-    var endPos = findEndPositionOfValue(this.getText(), diff);
-    this.codemirror.markText(beginPos, endPos, {
-      css: 'background-color: yellow'
-    });
+    this._highlight(diff, 'yellow');
   };
+
+  JsonInputView.prototype._highlight = function (diff, className) {
+    debugger
+    var pos = getStartAndEndPosOfDiff(this.getText(), diff);
+    this.codemirror.markText(pos.start, pos.end, {
+      css: 'background-color: ' + className
+    });
+  }
 
   JsonInputView.prototype.clearMarkers = function () {
     this.codemirror.getAllMarks().forEach(function (marker) {
@@ -70,76 +66,99 @@
     });
   }
 
-  function findPositionOfKey(textValue, diff) {
-    var path = diff.path.replace('/', '').split('/');
-    var lines = textValue.split('\n');
-    var lineNumber = 0, charNumber = 0;
-    for (var i = 0; i < lines.length; i++) {
-      lineNumber = i;
-      var line = lines[i];
-      var nextPathRegex = function () {
-        var firstKey = path[0];
-        return new RegExp('"' + firstKey + '"[^:]*:', 'g');
-      }
-
-      var indexOfNextPath = function () {
-        return line.search(nextPathRegex());
-      };
-
-      while (indexOfNextPath() > -1 && path.length > 0) {
-        charNumber = indexOfNextPath();
-        path.shift();
-      }
-      if (path.length === 0) {
-        break;
-      }
-    }
-    return {
-      line: lineNumber,
-      ch: charNumber
+  function getStartAndEndPosOfDiff(textValue, diff) {
+    var findPath = diff.path;
+    var contexts = {
+      ARRAY: 'ARRAY',
+      OBJECT: 'OBJECT'
     };
-  }
-
-  function findEndPositionOfValue(textValue, diff) {
-    var keyPos = findPositionOfKey(textValue, diff);
     var QUOTE = '"';
     var OBJ_OPEN = '{';
     var OBJ_CLOSE = '}';
     var ARR_OPEN = '[';
     var ARR_CLOSE = ']';
-
-    var lines = textValue.split('\n');
-    var endIndex = 0;
-    var i = textValue.match(new RegExp('(.*\n){' + (keyPos.line) + '}', 'g'))[0].length + (keyPos.ch);
-    i += textValue.substr(i).match(/"[^"]*":\s*/g)[0].length;
-    var valueStartingChar = textValue[i];
-    var isPrimitiveValue = valueStartingChar !== OBJ_OPEN && valueStartingChar !== ARR_OPEN;
-    if (isPrimitiveValue) {
-      if (valueStartingChar === QUOTE) {
-        i += 1;
-        endIndex = i + textValue.substr(i).match(/[^\\"]*"/g)[0].length;
-      } else {
-        endIndex = i + textValue.substr(i).match(/(\w|\d)+/g)[0].length;
-      }
-    } else {
-      var closingStr = valueStartingChar === OBJ_OPEN ? OBJ_CLOSE : ARR_CLOSE;
-      var stack = [];
-      stack.push(valueStartingChar);
-      i += 1;
-      while (stack.length > 0) {
-        var o = '\\' + valueStartingChar, c = '\\' + closingStr;
-        var str = textValue.substr(i).match(new RegExp('[^'+o+c+']*('+o+'|'+c+')', 'g'))[0];
-        i += str.length;
-        if (str[str.length - 1] === closingStr) {
-          stack.pop();
+    var SEPARATOR = ',';
+    var ESCAPE = '\\';
+    var NL = '\n';
+    var OBJ_PROPERTY_RGX = /^"([^"]|\\")*"(?=\s*:)/g;
+    var startPos, endPos, currChar, prevChar, currPath = [], contextStack = [], line = 0, ch = 0, inString = false;
+    for (var i = 0; i < textValue.length; i++) {
+      ch++;
+      currChar = textValue[i];
+      if (currChar === NL) {
+        line++;
+        ch = 0;
+      } else if (currChar === OBJ_OPEN) {
+        currPath.push(null);
+        contextStack.push(contexts.OBJECT);
+      } else if (currChar === ARR_OPEN) {
+        currPath.push(0);
+        contextStack.push(contexts.ARRAY);
+      } else if (currChar === QUOTE && !inString && prevChar !== ESCAPE) {
+        inString = true;
+        var prop = getNextObjProperty(i);
+        if (prop) {
+          currPath.push(prop);
+        }
+      } else if (currChar === SEPARATOR) {
+        if (context() === contexts.ARRAY) {
+          var currArrayIdx = currPath[currPath.length - 1];
+          currArrayIdx  = typeof(currArrayIdx ) === 'number' ? currArrayIdx  + 1 : 0;
+          currPath.pop();
+          currPath.push(currArrayIdx);
         } else {
-          stack.push(valueStartingChar);
+          currPath.pop();
+        }
+      } else if (currChar === QUOTE && inString) {
+        inString = false;
+      } else if (currChar === ARR_CLOSE || currChar === OBJ_CLOSE) {
+        contextStack.pop();
+        currPath.pop();
+        if (!followedByComma(i)) {
+          currPath.pop();
         }
       }
-      endIndex = i;
+
+      var currPathStr = '/' + currPath.filter(function (item) {
+        return item !== null;
+      }).join('/');
+      if (currPathStr === findPath && !startPos) {
+        startPos = {
+          line: line,
+          ch: ch
+        };
+      } else if (currPathStr.indexOf(findPath) === 0) {
+        endPos = {
+          line: line,
+          ch: ch
+        };
+      }
+
+      prevChar = currChar;
     }
 
-    return indexToPos(textValue, endIndex);
+    function getNextObjProperty(idx) {
+      var matches = textValue.substr(idx).match(OBJ_PROPERTY_RGX) || [];
+      var next = matches[0];
+      if (next) {
+        next = next.substr(1, next.length - 2);
+      }
+      return next;
+    }
+
+    function followedByComma(idx) {
+      var matches = textValue.substr(idx + 1).match(/^\s*,/g) || [];
+      return matches.length > 0;
+    }
+
+    function context() {
+      return contextStack[contextStack.length - 1];
+    }
+
+    return {
+      start: startPos,
+      end: endPos
+    }
   }
 
   function indexToPos(textValue, i) {
@@ -158,6 +177,12 @@
   var rightInputView = new JsonInputView(document.getElementById('json-diff-right'));
   leftInputView.on('change', compareJson);
   rightInputView.on('change', compareJson);
+  leftInputView.on('scroll', function () {
+
+  });
+  rightInputView.on('scroll', function () {
+
+  });
 
   function compareJson() {
     leftInputView.clearMarkers();
@@ -169,6 +194,7 @@
     } catch (e) {}
     if (!leftJson || !rightJson) return;
     var diffs = jsonpatch.compare(leftJson, rightJson);
+    console.log(diffs);
     diffs.forEach(function (diff) {
       if (diff.op === 'remove') {
         leftInputView.highlightRemoval(diff);
@@ -180,8 +206,5 @@
       }
     });
   }
-
-  // function
-
 
 })();
