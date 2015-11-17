@@ -53,7 +53,6 @@
   };
 
   JsonInputView.prototype._highlight = function (diff, className) {
-    debugger
     var pos = getStartAndEndPosOfDiff(this.getText(), diff);
     this.codemirror.markText(pos.start, pos.end, {
       css: 'background-color: ' + className
@@ -100,7 +99,7 @@
         if (prop) {
           currPath.push(prop);
         }
-      } else if (currChar === SEPARATOR) {
+      } else if (currChar === SEPARATOR && !inString) {
         if (context() === contexts.ARRAY) {
           var currArrayIdx = currPath[currPath.length - 1];
           currArrayIdx  = typeof(currArrayIdx ) === 'number' ? currArrayIdx  + 1 : 0;
@@ -114,9 +113,7 @@
       } else if (currChar === ARR_CLOSE || currChar === OBJ_CLOSE) {
         contextStack.pop();
         currPath.pop();
-        if (!followedByComma(i)) {
-          currPath.pop();
-        }
+        currPath.pop();
       }
 
       var currPathStr = '/' + currPath.filter(function (item) {
@@ -125,9 +122,9 @@
       if (currPathStr === findPath && !startPos) {
         startPos = {
           line: line,
-          ch: ch
+          ch: ch - 1
         };
-      } else if (currPathStr.indexOf(findPath) === 0) {
+      } else if (currPathStr.indexOf(findPath) === 0 && !(/\s/g).test(currChar)) {
         endPos = {
           line: line,
           ch: ch
