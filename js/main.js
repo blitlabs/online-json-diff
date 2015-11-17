@@ -175,11 +175,13 @@
   var rightInputView = new JsonInputView(document.getElementById('json-diff-right'));
   leftInputView.on('change', compareJson);
   rightInputView.on('change', compareJson);
-  leftInputView.on('scroll', function () {
-
+  leftInputView.codemirror.on('scroll', function () {
+    var scrollInfo = leftInputView.codemirror.getScrollInfo();
+    rightInputView.codemirror.scrollTo(scrollInfo.left, scrollInfo.top);
   });
-  rightInputView.on('scroll', function () {
-
+  rightInputView.codemirror.on('scroll', function () {
+    var scrollInfo = rightInputView.codemirror.getScrollInfo();
+    leftInputView.codemirror.scrollTo(scrollInfo.left, scrollInfo.top);
   });
 
   function compareJson() {
