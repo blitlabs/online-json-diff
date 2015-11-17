@@ -1,0 +1,46 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    font-family: 'Helvetica', sans-serif;
+    font-size: 18px;
+}
+
+.CodeMirror {
+    height: 100%;
+}
+
+#header-container {
+    display: block;
+    position: fixed;
+    width: 320px;
+    height: 55px;
+    right: 30px;
+    top: 40px;
+    z-index: 999;
+}
+
+select {
+    background-color: black;
+    margin: 0 auto;
+    color: white;
+    width: 310px;
+    padding: 15px;
+    height: 50px;
+    cursor: pointer;
+    font-size: 20px;
+    outline: none;
+    border: 1px solid black;
+}
+
+select:hover {
+    background-color: white;
+    color: black;
+    padding: 15px 5px 15px 25px;
+}

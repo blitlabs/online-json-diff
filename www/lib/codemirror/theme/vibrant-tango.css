@@ -1,0 +1,56 @@
+.cm-s-vibrant-tango {
+	font-size: 1em;
+	line-height: 1.5em;
+	font-family: inconsolata, monospace;
+	letter-spacing: 0.3px;
+	word-spacing: 1px;
+	background: #191D1E;
+	color: #FFFFFF;
+}
+.cm-s-vibrant-tango .CodeMirror-lines {
+	padding: 8px 0;
+}
+.cm-s-vibrant-tango .CodeMirror-gutters {
+	box-shadow: 1px 0 2px 0 rgba(0, 0, 0, 0.5);
+	-webkit-box-shadow: 1px 0 2px 0 rgba(0, 0, 0, 0.5);
+	background-color: #191D1E;
+	padding-right: 10px;
+	z-index: 3;
+	border: none;
+}
+.cm-s-vibrant-tango div.CodeMirror-cursor {
+	border-left: 3px solid #FFFFFF;
+}
+.cm-s-vibrant-tango .CodeMirror-activeline-background {
+	background: #131413;
+}
+.cm-s-vibrant-tango .CodeMirror-selected {
+	background: #434441;
+}
+.cm-s-vibrant-tango .cm-comment {
+	color: #744E7B;
+}
+.cm-s-vibrant-tango .cm-keyword {
+	color: #F27709;
+}
+.cm-s-vibrant-tango .cm-def {
+	font-style: italic;
+}
+.cm-s-vibrant-tango .cm-string {
+	color: #8DE635;
+}
+.cm-s-vibrant-tango .cm-property {
+	color: null;
+}
+.cm-s-vibrant-tango .cm-atom {
+	color: null;
+}
+.cm-s-vibrant-tango .cm-number {
+	color: null;
+}
+.cm-s-vibrant-tango .cm-operator {
+	color: #F27709;
+}
+.cm-s-vibrant-tango .CodeMirror-linenumber {
+	color: #744E7B;
+}

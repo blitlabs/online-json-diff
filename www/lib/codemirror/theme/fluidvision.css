@@ -1,0 +1,61 @@
+.cm-s-fluidvision {
+	font-size: 1em;
+	line-height: 1.5em;
+	font-family: inconsolata, monospace;
+	letter-spacing: 0.3px;
+	word-spacing: 1px;
+	background: #F4F4F4F2;
+	color: #000000;
+}
+.cm-s-fluidvision .CodeMirror-lines {
+	padding: 8px 0;
+}
+.cm-s-fluidvision .CodeMirror-gutters {
+	box-shadow: 1px 0 2px 0 rgba(0, 0, 0, 0.5);
+	-webkit-box-shadow: 1px 0 2px 0 rgba(0, 0, 0, 0.5);
+	background-color: #F4F4F4F2;
+	padding-right: 10px;
+	z-index: 3;
+	border: none;
+}
+.cm-s-fluidvision div.CodeMirror-cursor {
+	border-left: 3px solid #000000;
+}
+.cm-s-fluidvision .CodeMirror-activeline-background {
+	background: #00000012;
+}
+.cm-s-fluidvision .CodeMirror-selected {
+	background: #FFD793;
+}
+.cm-s-fluidvision .cm-comment {
+	color: #386F90;
+	background: #DDEEFEF2;
+}
+.cm-s-fluidvision .cm-keyword {
+	color: #5B91E1;
+}
+.cm-s-fluidvision .cm-number {
+	color: #3C4C72;
+}
+.cm-s-fluidvision .cm-atom {
+	font-style: italic;
+	color: #3C4C72;
+}
+.cm-s-fluidvision .cm-string {
+	color: #840E0B;
+}
+.cm-s-fluidvision .cm-def {
+	font-style: italic;
+}
+.cm-s-fluidvision .cm-property {
+	color: #3C4C72;
+}
+.cm-s-fluidvision .cm-variable-2 {
+	color: #001D56;
+}
+.cm-s-fluidvision .cm-operator {
+	color: #5B91E1;
+}
+.cm-s-fluidvision .CodeMirror-linenumber {
+	color: #386F90;
+}

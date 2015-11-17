@@ -1,0 +1,56 @@
+.cm-s-slush-&-poppies {
+	font-size: 1em;
+	line-height: 1.5em;
+	font-family: inconsolata, monospace;
+	letter-spacing: 0.3px;
+	word-spacing: 1px;
+	background: #F1F1F1;
+	color: #000000;
+}
+.cm-s-slush-&-poppies .CodeMirror-lines {
+	padding: 8px 0;
+}
+.cm-s-slush-&-poppies .CodeMirror-gutters {
+	box-shadow: 1px 0 2px 0 rgba(0, 0, 0, 0.5);
+	-webkit-box-shadow: 1px 0 2px 0 rgba(0, 0, 0, 0.5);
+	background-color: #F1F1F1;
+	padding-right: 10px;
+	z-index: 3;
+	border: none;
+}
+.cm-s-slush-&-poppies div.CodeMirror-cursor {
+	border-left: 3px solid #000000;
+}
+.cm-s-slush-&-poppies .CodeMirror-activeline-background {
+	background: #00000026;
+}
+.cm-s-slush-&-poppies .CodeMirror-selected {
+	background: #B0B0FF;
+}
+.cm-s-slush-&-poppies .cm-comment {
+	color: #406040;
+}
+.cm-s-slush-&-poppies .cm-string {
+	color: #C03030;
+}
+.cm-s-slush-&-poppies .cm-number {
+	color: null;
+}
+.cm-s-slush-&-poppies .cm-keyword {
+	color: #2060A0;
+}
+.cm-s-slush-&-poppies .cm-variable {
+	color: #800000;
+}
+.cm-s-slush-&-poppies .cm-property {
+	color: null;
+}
+.cm-s-slush-&-poppies .cm-atom {
+	color: null;
+}
+.cm-s-slush-&-poppies .cm-operator {
+	color: #2060A0;
+}
+.cm-s-slush-&-poppies .CodeMirror-linenumber {
+	color: #406040;
+}

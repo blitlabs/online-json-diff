@@ -1,0 +1,63 @@
+.cm-s-toulousse-lautrec {
+	font-size: 1em;
+	line-height: 1.5em;
+	font-family: inconsolata, monospace;
+	letter-spacing: 0.3px;
+	word-spacing: 1px;
+	background: #ffff88;
+	color: #27334d;
+}
+.cm-s-toulousse-lautrec .CodeMirror-lines {
+	padding: 8px 0;
+}
+.cm-s-toulousse-lautrec .CodeMirror-gutters {
+	box-shadow: 1px 0 2px 0 rgba(0, 0, 0, 0.5);
+	-webkit-box-shadow: 1px 0 2px 0 rgba(0, 0, 0, 0.5);
+	background-color: #ffff88;
+	padding-right: 10px;
+	z-index: 3;
+	border: none;
+}
+.cm-s-toulousse-lautrec div.CodeMirror-cursor {
+	border-left: 3px solid #27334d;
+}
+.cm-s-toulousse-lautrec .CodeMirror-activeline-background {
+	background: #27334d;
+}
+.cm-s-toulousse-lautrec .CodeMirror-selected {
+	background: #ffffff;
+}
+.cm-s-toulousse-lautrec .cm-comment {
+	color: #d9da87;
+}
+.cm-s-toulousse-lautrec .cm-string {
+	color: #000000;
+}
+.cm-s-toulousse-lautrec .cm-number {
+	color: #888888;
+}
+.cm-s-toulousse-lautrec .cm-atom {
+	color: #888888;
+}
+.cm-s-toulousse-lautrec .cm-keyword {
+	color: #e7352b;
+}
+.cm-s-toulousse-lautrec .cm-variable {
+	color: #888888;
+}
+.cm-s-toulousse-lautrec .cm-def {
+	font-style: italic;
+	color: #FD971F;
+}
+.cm-s-toulousse-lautrec .cm-variable-2 {
+	color: #e7352b;
+}
+.cm-s-toulousse-lautrec .cm-property {
+	color: #888888;
+}
+.cm-s-toulousse-lautrec .cm-operator {
+	color: #e7352b;
+}
+.cm-s-toulousse-lautrec .CodeMirror-linenumber {
+	color: #d9da87;
+}

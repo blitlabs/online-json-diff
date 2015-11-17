@@ -1,0 +1,57 @@
+.cm-s-zenburnesque {
+	font-size: 1em;
+	line-height: 1.5em;
+	font-family: inconsolata, monospace;
+	letter-spacing: 0.3px;
+	word-spacing: 1px;
+	background: #404040;
+	color: #DEDEDE;
+}
+.cm-s-zenburnesque .CodeMirror-lines {
+	padding: 8px 0;
+}
+.cm-s-zenburnesque .CodeMirror-gutters {
+	box-shadow: 1px 0 2px 0 rgba(0, 0, 0, 0.5);
+	-webkit-box-shadow: 1px 0 2px 0 rgba(0, 0, 0, 0.5);
+	background-color: #404040;
+	padding-right: 10px;
+	z-index: 3;
+	border: none;
+}
+.cm-s-zenburnesque div.CodeMirror-cursor {
+	border-left: 3px solid #DEDEDE;
+}
+.cm-s-zenburnesque .CodeMirror-activeline-background {
+	background: #A0804026;
+}
+.cm-s-zenburnesque .CodeMirror-selected {
+	background: #A0A0C0;
+}
+.cm-s-zenburnesque .cm-comment {
+	font-style: italic;
+	color: #709070;
+}
+.cm-s-zenburnesque .cm-string {
+	color: #FF2020;
+}
+.cm-s-zenburnesque .cm-number {
+	color: null;
+}
+.cm-s-zenburnesque .cm-keyword {
+	color: #FFFFA0;
+}
+.cm-s-zenburnesque .cm-variable {
+	color: #FFCC66;
+}
+.cm-s-zenburnesque .cm-property {
+	color: null;
+}
+.cm-s-zenburnesque .cm-atom {
+	color: null;
+}
+.cm-s-zenburnesque .cm-operator {
+	color: #FFFFA0;
+}
+.cm-s-zenburnesque .CodeMirror-linenumber {
+	color: italic;
+}

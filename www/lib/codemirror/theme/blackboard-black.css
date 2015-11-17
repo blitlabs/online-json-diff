@@ -1,0 +1,50 @@
+.cm-s-blackboard-black {
+	font-size: 1em;
+	line-height: 1.5em;
+	font-family: inconsolata, monospace;
+	letter-spacing: 0.3px;
+	word-spacing: 1px;
+	background: #1F1F1F;
+	color: #F8F8F8;
+}
+.cm-s-blackboard-black .CodeMirror-lines {
+	padding: 8px 0;
+}
+.cm-s-blackboard-black .CodeMirror-gutters {
+	box-shadow: 1px 0 2px 0 rgba(0, 0, 0, 0.5);
+	-webkit-box-shadow: 1px 0 2px 0 rgba(0, 0, 0, 0.5);
+	background-color: #1F1F1F;
+	padding-right: 10px;
+	z-index: 3;
+	border: none;
+}
+.cm-s-blackboard-black div.CodeMirror-cursor {
+	border-left: 3px solid #F8F8F8;
+}
+.cm-s-blackboard-black .CodeMirror-activeline-background {
+	background: #FFFFFF0F;
+}
+.cm-s-blackboard-black .CodeMirror-selected {
+	background: #253B76;
+}
+.cm-s-blackboard-black .cm-comment {
+	color: #AEAEAE;
+}
+.cm-s-blackboard-black .cm-keyword {
+	color: #FBDE2D;
+}
+.cm-s-blackboard-black .cm-property {
+	color: null;
+}
+.cm-s-blackboard-black .cm-atom {
+	color: null;
+}
+.cm-s-blackboard-black .cm-number {
+	color: null;
+}
+.cm-s-blackboard-black .cm-operator {
+	color: #FBDE2D;
+}
+.cm-s-blackboard-black .CodeMirror-linenumber {
+	color: #AEAEAE;
+}

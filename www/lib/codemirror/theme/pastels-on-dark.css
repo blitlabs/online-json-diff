@@ -1,0 +1,53 @@
+.cm-s-pastels-on-dark {
+	font-size: 1em;
+	line-height: 1.5em;
+	font-family: inconsolata, monospace;
+	letter-spacing: 0.3px;
+	word-spacing: 1px;
+	background: #211E1E;
+	color: #DADADA;
+}
+.cm-s-pastels-on-dark .CodeMirror-lines {
+	padding: 8px 0;
+}
+.cm-s-pastels-on-dark .CodeMirror-gutters {
+	box-shadow: 1px 0 2px 0 rgba(0, 0, 0, 0.5);
+	-webkit-box-shadow: 1px 0 2px 0 rgba(0, 0, 0, 0.5);
+	background-color: #211E1E;
+	padding-right: 10px;
+	z-index: 3;
+	border: none;
+}
+.cm-s-pastels-on-dark div.CodeMirror-cursor {
+	border-left: 3px solid #DADADA;
+}
+.cm-s-pastels-on-dark .CodeMirror-activeline-background {
+	background: #353030;
+}
+.cm-s-pastels-on-dark .CodeMirror-selected {
+	background: #73597E80;
+}
+.cm-s-pastels-on-dark .cm-comment {
+	color: #555555;
+}
+.cm-s-pastels-on-dark .cm-string {
+	color: #AD9361;
+}
+.cm-s-pastels-on-dark .cm-number {
+	color: #A1A1FF;
+}
+.cm-s-pastels-on-dark .cm-keyword {
+	color: #A1A1FF;
+}
+.cm-s-pastels-on-dark .cm-property {
+	color: #A1A1FF;
+}
+.cm-s-pastels-on-dark .cm-atom {
+	color: #A1A1FF;
+}
+.cm-s-pastels-on-dark .cm-operator {
+	color: #A1A1FF;
+}
+.cm-s-pastels-on-dark .CodeMirror-linenumber {
+	color: #555555;
+}

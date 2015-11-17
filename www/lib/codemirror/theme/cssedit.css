@@ -1,0 +1,56 @@
+.cm-s-cssedit {
+	font-size: 1em;
+	line-height: 1.5em;
+	font-family: inconsolata, monospace;
+	letter-spacing: 0.3px;
+	word-spacing: 1px;
+	background: #FFFFFF;
+	color: #474747;
+}
+.cm-s-cssedit .CodeMirror-lines {
+	padding: 8px 0;
+}
+.cm-s-cssedit .CodeMirror-gutters {
+	box-shadow: 1px 0 2px 0 rgba(0, 0, 0, 0.5);
+	-webkit-box-shadow: 1px 0 2px 0 rgba(0, 0, 0, 0.5);
+	background-color: #FFFFFF;
+	padding-right: 10px;
+	z-index: 3;
+	border: none;
+}
+.cm-s-cssedit div.CodeMirror-cursor {
+	border-left: 3px solid #474747;
+}
+.cm-s-cssedit .CodeMirror-activeline-background {
+	background: #00000012;
+}
+.cm-s-cssedit .CodeMirror-selected {
+	background: #A0CDFF;
+}
+.cm-s-cssedit .cm-comment {
+	color: #A8A8A8;
+}
+.cm-s-cssedit .cm-string {
+	color: #5D9629;
+}
+.cm-s-cssedit .cm-number {
+	color: null;
+}
+.cm-s-cssedit .cm-keyword {
+	color: #4678BC;
+}
+.cm-s-cssedit .cm-variable-2 {
+	color: #4678BC;
+}
+.cm-s-cssedit .cm-property {
+	color: null;
+}
+.cm-s-cssedit .cm-atom {
+	color: null;
+}
+.cm-s-cssedit .cm-operator {
+	color: #4678BC;
+}
+.cm-s-cssedit .CodeMirror-linenumber {
+	color: #A8A8A8;
+}

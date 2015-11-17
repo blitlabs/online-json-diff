@@ -1,0 +1,54 @@
+.cm-s-putty {
+	font-size: 1em;
+	line-height: 1.5em;
+	font-family: inconsolata, monospace;
+	letter-spacing: 0.3px;
+	word-spacing: 1px;
+	background: #242322;
+	color: #E5E1DC;
+}
+.cm-s-putty .CodeMirror-lines {
+	padding: 8px 0;
+}
+.cm-s-putty .CodeMirror-gutters {
+	box-shadow: 1px 0 2px 0 rgba(0, 0, 0, 0.5);
+	-webkit-box-shadow: 1px 0 2px 0 rgba(0, 0, 0, 0.5);
+	background-color: #242322;
+	padding-right: 10px;
+	z-index: 3;
+	border: none;
+}
+.cm-s-putty div.CodeMirror-cursor {
+	border-left: 3px solid #E5E1DC;
+}
+.cm-s-putty .CodeMirror-activeline-background {
+	background: #333435;
+}
+.cm-s-putty .CodeMirror-selected {
+	background: #5A647EE0;
+}
+.cm-s-putty .cm-comment {
+	font-style: italic;
+	color: #747676;
+}
+.cm-s-putty .cm-number {
+	color: #D4584B;
+}
+.cm-s-putty .cm-atom {
+	color: #D4584B;
+}
+.cm-s-putty .cm-string {
+	color: #7AB8D7;
+}
+.cm-s-putty .cm-property {
+	color: #D4584B;
+}
+.cm-s-putty .cm-keyword {
+	color: null;
+}
+.cm-s-putty .cm-operator {
+	color: null;
+}
+.cm-s-putty .CodeMirror-linenumber {
+	color: italic;
+}

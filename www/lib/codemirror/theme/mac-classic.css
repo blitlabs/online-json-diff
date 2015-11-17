@@ -1,0 +1,57 @@
+.cm-s-mac-classic {
+	font-size: 1em;
+	line-height: 1.5em;
+	font-family: inconsolata, monospace;
+	letter-spacing: 0.3px;
+	word-spacing: 1px;
+	background: #FFFFFF;
+	color: #000000;
+}
+.cm-s-mac-classic .CodeMirror-lines {
+	padding: 8px 0;
+}
+.cm-s-mac-classic .CodeMirror-gutters {
+	box-shadow: 1px 0 2px 0 rgba(0, 0, 0, 0.5);
+	-webkit-box-shadow: 1px 0 2px 0 rgba(0, 0, 0, 0.5);
+	background-color: #FFFFFF;
+	padding-right: 10px;
+	z-index: 3;
+	border: none;
+}
+.cm-s-mac-classic div.CodeMirror-cursor {
+	border-left: 3px solid #000000;
+}
+.cm-s-mac-classic .CodeMirror-activeline-background {
+	background: #00000012;
+}
+.cm-s-mac-classic .CodeMirror-selected {
+	background: #4D97FF54;
+}
+.cm-s-mac-classic .cm-comment {
+	font-style: italic;
+	color: #0066FF;
+}
+.cm-s-mac-classic .cm-number {
+	color: #3C4C72;
+}
+.cm-s-mac-classic .cm-atom {
+	color: #3C4C72;
+}
+.cm-s-mac-classic .cm-string {
+	color: #036A07;
+}
+.cm-s-mac-classic .cm-def {
+	font-style: italic;
+}
+.cm-s-mac-classic .cm-property {
+	color: #3C4C72;
+}
+.cm-s-mac-classic .cm-keyword {
+	color: null;
+}
+.cm-s-mac-classic .cm-operator {
+	color: null;
+}
+.cm-s-mac-classic .CodeMirror-linenumber {
+	color: italic;
+}

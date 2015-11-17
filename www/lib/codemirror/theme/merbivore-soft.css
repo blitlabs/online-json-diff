@@ -1,0 +1,54 @@
+.cm-s-merbivore-soft {
+	font-size: 1em;
+	line-height: 1.5em;
+	font-family: inconsolata, monospace;
+	letter-spacing: 0.3px;
+	word-spacing: 1px;
+	background: #1C1C1C;
+	color: #E6E1DC;
+}
+.cm-s-merbivore-soft .CodeMirror-lines {
+	padding: 8px 0;
+}
+.cm-s-merbivore-soft .CodeMirror-gutters {
+	box-shadow: 1px 0 2px 0 rgba(0, 0, 0, 0.5);
+	-webkit-box-shadow: 1px 0 2px 0 rgba(0, 0, 0, 0.5);
+	background-color: #1C1C1C;
+	padding-right: 10px;
+	z-index: 3;
+	border: none;
+}
+.cm-s-merbivore-soft div.CodeMirror-cursor {
+	border-left: 3px solid #E6E1DC;
+}
+.cm-s-merbivore-soft .CodeMirror-activeline-background {
+	background: #333435;
+}
+.cm-s-merbivore-soft .CodeMirror-selected {
+	background: #392243E0;
+}
+.cm-s-merbivore-soft .cm-comment {
+	font-style: italic;
+	color: #AC4BB8;
+}
+.cm-s-merbivore-soft .cm-number {
+	color: null;
+}
+.cm-s-merbivore-soft .cm-atom {
+	color: null;
+}
+.cm-s-merbivore-soft .cm-string {
+	color: #8EC65F;
+}
+.cm-s-merbivore-soft .cm-property {
+	color: null;
+}
+.cm-s-merbivore-soft .cm-keyword {
+	color: null;
+}
+.cm-s-merbivore-soft .cm-operator {
+	color: null;
+}
+.cm-s-merbivore-soft .CodeMirror-linenumber {
+	color: italic;
+}

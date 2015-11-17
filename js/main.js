@@ -4,7 +4,8 @@
     this.el = el;
     var codemirror = this.codemirror = CodeMirror.fromTextArea(this.el, {
       lineNumbers: true,
-      mode: {name: "javascript", json: true}
+      mode: {name: "javascript", json: true},
+      theme: 'tomorrow-night'
     });
     var self = this;
 
@@ -41,15 +42,15 @@
   };
 
   JsonInputView.prototype.highlightRemoval = function (diff) {
-    this._highlight(diff, 'red');
+    this._highlight(diff, '#DD4444');
   };
 
   JsonInputView.prototype.highlightAddition = function (diff) {
-    this._highlight(diff, 'blue');
+    this._highlight(diff, '#2E6DFF');
   };
 
   JsonInputView.prototype.highlightChange = function (diff) {
-    this._highlight(diff, 'yellow');
+    this._highlight(diff, '#9E9E00');
   };
 
   JsonInputView.prototype._highlight = function (diff, className) {

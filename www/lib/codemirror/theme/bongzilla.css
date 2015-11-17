@@ -1,0 +1,50 @@
+.cm-s-bongzilla {
+	font-size: 1em;
+	line-height: 1.5em;
+	font-family: inconsolata, monospace;
+	letter-spacing: 0.3px;
+	word-spacing: 1px;
+	background: #1F1F1F;
+	color: #F8F8F8;
+}
+.cm-s-bongzilla .CodeMirror-lines {
+	padding: 8px 0;
+}
+.cm-s-bongzilla .CodeMirror-gutters {
+	box-shadow: 1px 0 2px 0 rgba(0, 0, 0, 0.5);
+	-webkit-box-shadow: 1px 0 2px 0 rgba(0, 0, 0, 0.5);
+	background-color: #1F1F1F;
+	padding-right: 10px;
+	z-index: 3;
+	border: none;
+}
+.cm-s-bongzilla div.CodeMirror-cursor {
+	border-left: 3px solid #F8F8F8;
+}
+.cm-s-bongzilla .CodeMirror-activeline-background {
+	background: #FFFFFF0F;
+}
+.cm-s-bongzilla .CodeMirror-selected {
+	background: #253B76;
+}
+.cm-s-bongzilla .cm-comment {
+	color: #AEAEAE;
+}
+.cm-s-bongzilla .cm-keyword {
+	color: #FFCC66;
+}
+.cm-s-bongzilla .cm-property {
+	color: null;
+}
+.cm-s-bongzilla .cm-atom {
+	color: null;
+}
+.cm-s-bongzilla .cm-number {
+	color: null;
+}
+.cm-s-bongzilla .cm-operator {
+	color: #FFCC66;
+}
+.cm-s-bongzilla .CodeMirror-linenumber {
+	color: #AEAEAE;
+}

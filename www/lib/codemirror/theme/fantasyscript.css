@@ -1,0 +1,63 @@
+.cm-s-fantasyscript {
+	font-size: 1em;
+	line-height: 1.5em;
+	font-family: inconsolata, monospace;
+	letter-spacing: 0.3px;
+	word-spacing: 1px;
+	background: #f1debd;
+	color: #b30000;
+}
+.cm-s-fantasyscript .CodeMirror-lines {
+	padding: 8px 0;
+}
+.cm-s-fantasyscript .CodeMirror-gutters {
+	box-shadow: 1px 0 2px 0 rgba(0, 0, 0, 0.5);
+	-webkit-box-shadow: 1px 0 2px 0 rgba(0, 0, 0, 0.5);
+	background-color: #f1debd;
+	padding-right: 10px;
+	z-index: 3;
+	border: none;
+}
+.cm-s-fantasyscript div.CodeMirror-cursor {
+	border-left: 3px solid #b30000;
+}
+.cm-s-fantasyscript .CodeMirror-activeline-background {
+	background: #333333;
+}
+.cm-s-fantasyscript .CodeMirror-selected {
+	background: #ffffff;
+}
+.cm-s-fantasyscript .cm-comment {
+	color: #d7c19c;
+}
+.cm-s-fantasyscript .cm-string {
+	color: #333333;
+}
+.cm-s-fantasyscript .cm-number {
+	color: #888888;
+}
+.cm-s-fantasyscript .cm-atom {
+	color: #888888;
+}
+.cm-s-fantasyscript .cm-keyword {
+	color: #ff0000;
+}
+.cm-s-fantasyscript .cm-variable {
+	color: #888888;
+}
+.cm-s-fantasyscript .cm-def {
+	font-style: italic;
+	color: #FD971F;
+}
+.cm-s-fantasyscript .cm-variable-2 {
+	color: #ce7018;
+}
+.cm-s-fantasyscript .cm-property {
+	color: #888888;
+}
+.cm-s-fantasyscript .cm-operator {
+	color: #ff0000;
+}
+.cm-s-fantasyscript .CodeMirror-linenumber {
+	color: #d7c19c;
+}

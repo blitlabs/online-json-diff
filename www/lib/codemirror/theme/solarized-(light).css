@@ -1,0 +1,59 @@
+.cm-s-solarized-(light) {
+	font-size: 1em;
+	line-height: 1.5em;
+	font-family: inconsolata, monospace;
+	letter-spacing: 0.3px;
+	word-spacing: 1px;
+	background: #FDF6E3;
+	color: #586E75;
+}
+.cm-s-solarized-(light) .CodeMirror-lines {
+	padding: 8px 0;
+}
+.cm-s-solarized-(light) .CodeMirror-gutters {
+	box-shadow: 1px 0 2px 0 rgba(0, 0, 0, 0.5);
+	-webkit-box-shadow: 1px 0 2px 0 rgba(0, 0, 0, 0.5);
+	background-color: #FDF6E3;
+	padding-right: 10px;
+	z-index: 3;
+	border: none;
+}
+.cm-s-solarized-(light) div.CodeMirror-cursor {
+	border-left: 3px solid #586E75;
+}
+.cm-s-solarized-(light) .CodeMirror-activeline-background {
+	background: #eee8d5;
+}
+.cm-s-solarized-(light) .CodeMirror-selected {
+	background: #eee8d5;
+}
+.cm-s-solarized-(light) .cm-comment {
+	color: #93A1A1;
+}
+.cm-s-solarized-(light) .cm-string {
+	color: #586E75;
+}
+.cm-s-solarized-(light) .cm-number {
+	color: #268BD2;
+}
+.cm-s-solarized-(light) .cm-keyword {
+	color: #859900;
+}
+.cm-s-solarized-(light) .cm-variable {
+	color: #268BD2;
+}
+.cm-s-solarized-(light) .cm-variable-2 {
+	color: #268BD2;
+}
+.cm-s-solarized-(light) .cm-property {
+	color: #268BD2;
+}
+.cm-s-solarized-(light) .cm-atom {
+	color: #268BD2;
+}
+.cm-s-solarized-(light) .cm-operator {
+	color: #859900;
+}
+.cm-s-solarized-(light) .CodeMirror-linenumber {
+	color: #93A1A1;
+}

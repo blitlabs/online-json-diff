@@ -1,0 +1,51 @@
+.cm-s-swyphs-ii {
+	font-size: 1em;
+	line-height: 1.5em;
+	font-family: inconsolata, monospace;
+	letter-spacing: 0.3px;
+	word-spacing: 1px;
+	background: #000000FA;
+	color: #C1C1C1;
+}
+.cm-s-swyphs-ii .CodeMirror-lines {
+	padding: 8px 0;
+}
+.cm-s-swyphs-ii .CodeMirror-gutters {
+	box-shadow: 1px 0 2px 0 rgba(0, 0, 0, 0.5);
+	-webkit-box-shadow: 1px 0 2px 0 rgba(0, 0, 0, 0.5);
+	background-color: #000000FA;
+	padding-right: 10px;
+	z-index: 3;
+	border: none;
+}
+.cm-s-swyphs-ii div.CodeMirror-cursor {
+	border-left: 3px solid #C1C1C1;
+}
+.cm-s-swyphs-ii .CodeMirror-activeline-background {
+	background: #080808;
+}
+.cm-s-swyphs-ii .CodeMirror-selected {
+	background: #BC1800;
+}
+.cm-s-swyphs-ii .cm-comment {
+	font-style: italic;
+	color: #575757;
+}
+.cm-s-swyphs-ii .cm-property {
+	color: #7D6068;
+}
+.cm-s-swyphs-ii .cm-atom {
+	color: #7D6068;
+}
+.cm-s-swyphs-ii .cm-number {
+	color: #7D6068;
+}
+.cm-s-swyphs-ii .cm-keyword {
+	color: null;
+}
+.cm-s-swyphs-ii .cm-operator {
+	color: null;
+}
+.cm-s-swyphs-ii .CodeMirror-linenumber {
+	color: italic;
+}

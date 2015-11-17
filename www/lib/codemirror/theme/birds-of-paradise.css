@@ -1,0 +1,58 @@
+.cm-s-birds-of-paradise {
+	font-size: 1em;
+	line-height: 1.5em;
+	font-family: inconsolata, monospace;
+	letter-spacing: 0.3px;
+	word-spacing: 1px;
+	background: #372725;
+	color: #E6E1C4;
+}
+.cm-s-birds-of-paradise .CodeMirror-lines {
+	padding: 8px 0;
+}
+.cm-s-birds-of-paradise .CodeMirror-gutters {
+	box-shadow: 1px 0 2px 0 rgba(0, 0, 0, 0.5);
+	-webkit-box-shadow: 1px 0 2px 0 rgba(0, 0, 0, 0.5);
+	background-color: #372725;
+	padding-right: 10px;
+	z-index: 3;
+	border: none;
+}
+.cm-s-birds-of-paradise div.CodeMirror-cursor {
+	border-left: 3px solid #E6E1C4;
+}
+.cm-s-birds-of-paradise .CodeMirror-activeline-background {
+	background: #281C1C66;
+}
+.cm-s-birds-of-paradise .CodeMirror-selected {
+	background: #1E1C1C;
+}
+.cm-s-birds-of-paradise .cm-comment {
+	font-style: italic;
+	color: #6B4E32;
+}
+.cm-s-birds-of-paradise .cm-keyword {
+	color: #EF5D32;
+}
+.cm-s-birds-of-paradise .cm-string {
+	font-style: italic;
+	color: #D9D762;
+}
+.cm-s-birds-of-paradise .cm-property {
+	color: #EFAC32;
+}
+.cm-s-birds-of-paradise .cm-def {
+	color: #7DAF9C;
+}
+.cm-s-birds-of-paradise .cm-atom {
+	color: #EFAC32;
+}
+.cm-s-birds-of-paradise .cm-number {
+	color: #EFAC32;
+}
+.cm-s-birds-of-paradise .cm-operator {
+	color: #EF5D32;
+}
+.cm-s-birds-of-paradise .CodeMirror-linenumber {
+	color: italic;
+}

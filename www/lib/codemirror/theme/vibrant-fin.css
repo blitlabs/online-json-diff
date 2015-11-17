@@ -1,0 +1,56 @@
+.cm-s-vibrant-fin {
+	font-size: 1em;
+	line-height: 1.5em;
+	font-family: inconsolata, monospace;
+	letter-spacing: 0.3px;
+	word-spacing: 1px;
+	background: #000000F2;
+	color: #FFFFFF;
+}
+.cm-s-vibrant-fin .CodeMirror-lines {
+	padding: 8px 0;
+}
+.cm-s-vibrant-fin .CodeMirror-gutters {
+	box-shadow: 1px 0 2px 0 rgba(0, 0, 0, 0.5);
+	-webkit-box-shadow: 1px 0 2px 0 rgba(0, 0, 0, 0.5);
+	background-color: #000000F2;
+	padding-right: 10px;
+	z-index: 3;
+	border: none;
+}
+.cm-s-vibrant-fin div.CodeMirror-cursor {
+	border-left: 3px solid #FFFFFF;
+}
+.cm-s-vibrant-fin .CodeMirror-activeline-background {
+	background: #33333145;
+}
+.cm-s-vibrant-fin .CodeMirror-selected {
+	background: #3833E3E0;
+}
+.cm-s-vibrant-fin .cm-comment {
+	color: #634D70;
+}
+.cm-s-vibrant-fin .cm-keyword {
+	color: #FF6600;
+}
+.cm-s-vibrant-fin .cm-def {
+	font-style: italic;
+}
+.cm-s-vibrant-fin .cm-string {
+	color: #66FF00;
+}
+.cm-s-vibrant-fin .cm-property {
+	color: null;
+}
+.cm-s-vibrant-fin .cm-atom {
+	color: null;
+}
+.cm-s-vibrant-fin .cm-number {
+	color: null;
+}
+.cm-s-vibrant-fin .cm-operator {
+	color: #FF6600;
+}
+.cm-s-vibrant-fin .CodeMirror-linenumber {
+	color: #634D70;
+}

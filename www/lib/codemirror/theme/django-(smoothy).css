@@ -1,0 +1,54 @@
+.cm-s-django-(smoothy) {
+	font-size: 1em;
+	line-height: 1.5em;
+	font-family: inconsolata, monospace;
+	letter-spacing: 0.3px;
+	word-spacing: 1px;
+	background: #245032;
+	color: #F8F8F8;
+}
+.cm-s-django-(smoothy) .CodeMirror-lines {
+	padding: 8px 0;
+}
+.cm-s-django-(smoothy) .CodeMirror-gutters {
+	box-shadow: 1px 0 2px 0 rgba(0, 0, 0, 0.5);
+	-webkit-box-shadow: 1px 0 2px 0 rgba(0, 0, 0, 0.5);
+	background-color: #245032;
+	padding-right: 10px;
+	z-index: 3;
+	border: none;
+}
+.cm-s-django-(smoothy) div.CodeMirror-cursor {
+	border-left: 3px solid #F8F8F8;
+}
+.cm-s-django-(smoothy) .CodeMirror-activeline-background {
+	background: #0000004A;
+}
+.cm-s-django-(smoothy) .CodeMirror-selected {
+	background: #336442;
+}
+.cm-s-django-(smoothy) .cm-comment {
+	color: #FD6209;
+}
+.cm-s-django-(smoothy) .cm-keyword {
+	color: #96DD3B;
+}
+.cm-s-django-(smoothy) .cm-string {
+	font-style: italic;
+	color: #E1FFB8;
+}
+.cm-s-django-(smoothy) .cm-property {
+	color: #FFE862;
+}
+.cm-s-django-(smoothy) .cm-atom {
+	color: #FFE862;
+}
+.cm-s-django-(smoothy) .cm-number {
+	color: #FFE862;
+}
+.cm-s-django-(smoothy) .cm-operator {
+	color: #96DD3B;
+}
+.cm-s-django-(smoothy) .CodeMirror-linenumber {
+	color: #FD6209;
+}

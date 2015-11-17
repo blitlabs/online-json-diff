@@ -1,0 +1,51 @@
+.cm-s-classic-modified {
+	font-size: 1em;
+	line-height: 1.5em;
+	font-family: inconsolata, monospace;
+	letter-spacing: 0.3px;
+	word-spacing: 1px;
+	background: #FFFFFF;
+	color: #000000;
+}
+.cm-s-classic-modified .CodeMirror-lines {
+	padding: 8px 0;
+}
+.cm-s-classic-modified .CodeMirror-gutters {
+	box-shadow: 1px 0 2px 0 rgba(0, 0, 0, 0.5);
+	-webkit-box-shadow: 1px 0 2px 0 rgba(0, 0, 0, 0.5);
+	background-color: #FFFFFF;
+	padding-right: 10px;
+	z-index: 3;
+	border: none;
+}
+.cm-s-classic-modified div.CodeMirror-cursor {
+	border-left: 3px solid #000000;
+}
+.cm-s-classic-modified .CodeMirror-activeline-background {
+	background: #00000012;
+}
+.cm-s-classic-modified .CodeMirror-selected {
+	background: #4D97FF54;
+}
+.cm-s-classic-modified .cm-number {
+	color: #990099;
+}
+.cm-s-classic-modified .cm-atom {
+	color: #990099;
+}
+.cm-s-classic-modified .cm-string {
+	color: #666666;
+	background: #FFFFFF;
+}
+.cm-s-classic-modified .cm-property {
+	color: #990099;
+}
+.cm-s-classic-modified .cm-keyword {
+	color: null;
+}
+.cm-s-classic-modified .cm-operator {
+	color: null;
+}
+.cm-s-classic-modified .CodeMirror-linenumber {
+	color: null;
+}

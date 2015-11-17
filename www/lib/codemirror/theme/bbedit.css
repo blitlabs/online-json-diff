@@ -1,0 +1,53 @@
+.cm-s-bbedit {
+	font-size: 1em;
+	line-height: 1.5em;
+	font-family: inconsolata, monospace;
+	letter-spacing: 0.3px;
+	word-spacing: 1px;
+	background: #FFFFFF;
+	color: #000000;
+}
+.cm-s-bbedit .CodeMirror-lines {
+	padding: 8px 0;
+}
+.cm-s-bbedit .CodeMirror-gutters {
+	box-shadow: 1px 0 2px 0 rgba(0, 0, 0, 0.5);
+	-webkit-box-shadow: 1px 0 2px 0 rgba(0, 0, 0, 0.5);
+	background-color: #FFFFFF;
+	padding-right: 10px;
+	z-index: 3;
+	border: none;
+}
+.cm-s-bbedit div.CodeMirror-cursor {
+	border-left: 3px solid #000000;
+}
+.cm-s-bbedit .CodeMirror-activeline-background {
+	background: #00000012;
+}
+.cm-s-bbedit .CodeMirror-selected {
+	background: #FFD420;
+}
+.cm-s-bbedit .cm-comment {
+	color: #804000;
+}
+.cm-s-bbedit .cm-number {
+	color: #0000FF;
+}
+.cm-s-bbedit .cm-string {
+	color: #FF0080;
+}
+.cm-s-bbedit .cm-atom {
+	color: #0000FF;
+}
+.cm-s-bbedit .cm-property {
+	color: #0000FF;
+}
+.cm-s-bbedit .cm-keyword {
+	color: null;
+}
+.cm-s-bbedit .cm-operator {
+	color: null;
+}
+.cm-s-bbedit .CodeMirror-linenumber {
+	color: #804000;
+}

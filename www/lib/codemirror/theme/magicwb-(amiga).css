@@ -1,0 +1,61 @@
+.cm-s-magicwb-(amiga) {
+	font-size: 1em;
+	line-height: 1.5em;
+	font-family: inconsolata, monospace;
+	letter-spacing: 0.3px;
+	word-spacing: 1px;
+	background: #969696;
+	color: #000000;
+}
+.cm-s-magicwb-(amiga) .CodeMirror-lines {
+	padding: 8px 0;
+}
+.cm-s-magicwb-(amiga) .CodeMirror-gutters {
+	box-shadow: 1px 0 2px 0 rgba(0, 0, 0, 0.5);
+	-webkit-box-shadow: 1px 0 2px 0 rgba(0, 0, 0, 0.5);
+	background-color: #969696;
+	padding-right: 10px;
+	z-index: 3;
+	border: none;
+}
+.cm-s-magicwb-(amiga) div.CodeMirror-cursor {
+	border-left: 3px solid #000000;
+}
+.cm-s-magicwb-(amiga) .CodeMirror-activeline-background {
+	background: #00000012;
+}
+.cm-s-magicwb-(amiga) .CodeMirror-selected {
+	background: #B1B1B1;
+}
+.cm-s-magicwb-(amiga) .cm-comment {
+	font-style: italic;
+	color: #8D2E75;
+}
+.cm-s-magicwb-(amiga) .cm-string {
+	color: #FFFFFF;
+	background: #FF000033;
+}
+.cm-s-magicwb-(amiga) .cm-number {
+	color: #E5B3FF;
+}
+.cm-s-magicwb-(amiga) .cm-atom {
+	color: #E5B3FF;
+}
+.cm-s-magicwb-(amiga) .cm-variable {
+	color: #FFA995;
+}
+.cm-s-magicwb-(amiga) .cm-def {
+	font-style: italic;
+}
+.cm-s-magicwb-(amiga) .cm-property {
+	color: #E5B3FF;
+}
+.cm-s-magicwb-(amiga) .cm-keyword {
+	color: null;
+}
+.cm-s-magicwb-(amiga) .cm-operator {
+	color: null;
+}
+.cm-s-magicwb-(amiga) .CodeMirror-linenumber {
+	color: italic;
+}

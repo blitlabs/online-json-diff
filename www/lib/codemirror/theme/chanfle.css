@@ -1,0 +1,63 @@
+.cm-s-chanfle {
+	font-size: 1em;
+	line-height: 1.5em;
+	font-family: inconsolata, monospace;
+	letter-spacing: 0.3px;
+	word-spacing: 1px;
+	background: #ffd513;
+	color: #333333;
+}
+.cm-s-chanfle .CodeMirror-lines {
+	padding: 8px 0;
+}
+.cm-s-chanfle .CodeMirror-gutters {
+	box-shadow: 1px 0 2px 0 rgba(0, 0, 0, 0.5);
+	-webkit-box-shadow: 1px 0 2px 0 rgba(0, 0, 0, 0.5);
+	background-color: #ffd513;
+	padding-right: 10px;
+	z-index: 3;
+	border: none;
+}
+.cm-s-chanfle div.CodeMirror-cursor {
+	border-left: 3px solid #333333;
+}
+.cm-s-chanfle .CodeMirror-activeline-background {
+	background: #333333;
+}
+.cm-s-chanfle .CodeMirror-selected {
+	background: #ffffff;
+}
+.cm-s-chanfle .cm-comment {
+	color: #ddab14;
+}
+.cm-s-chanfle .cm-string {
+	color: #000000;
+}
+.cm-s-chanfle .cm-number {
+	color: #888888;
+}
+.cm-s-chanfle .cm-atom {
+	color: #888888;
+}
+.cm-s-chanfle .cm-keyword {
+	color: #ff0000;
+}
+.cm-s-chanfle .cm-variable {
+	color: #888888;
+}
+.cm-s-chanfle .cm-def {
+	font-style: italic;
+	color: #FD971F;
+}
+.cm-s-chanfle .cm-variable-2 {
+	color: #ff0000;
+}
+.cm-s-chanfle .cm-property {
+	color: #888888;
+}
+.cm-s-chanfle .cm-operator {
+	color: #ff0000;
+}
+.cm-s-chanfle .CodeMirror-linenumber {
+	color: #ddab14;
+}
