@@ -111,9 +111,17 @@
         }
       } else if (currChar === QUOTE && inString) {
         inString = false;
-      } else if (currChar === ARR_CLOSE || currChar === OBJ_CLOSE) {
+      } else if (currChar === OBJ_CLOSE) {
         contextStack.pop();
         currPath.pop();
+        // look behind for empty object
+        var matches = textValue.split('').reverse().join('').substr(textValue.length - i).match(/^\s*{/g) || [];
+        var isEmptyObject = matches.length > 0;
+        if (!isEmptyObject) {
+          currPath.pop();
+        }
+      } else if (currChar === ARR_CLOSE) {
+        contextStack.pop();
         currPath.pop();
       }
 

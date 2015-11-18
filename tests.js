@@ -1,4 +1,78 @@
 {
+  "columns":[
+    {
+      "exprType":"FUNCTION",
+      "name":"COUNT",
+      "distinct":false,
+      "arguments":[
+        {
+          "column":"Card ID",
+          "exprType":"COLUMN"
+        }]
+    },
+    {
+      "exprType":"FUNCTION",
+      "name":"COUNT",
+      "distinct":false,
+      "arguments":[
+        {
+          "column":"Time",
+          "exprType":"COLUMN"
+        }]
+    },
+    {
+      "exprType":"FUNCTION",
+      "name":"COUNT",
+      "distinct":false,
+      "arguments":[
+        {
+          "column":"Customer",
+          "exprType":"COLUMN"
+        }]
+    },
+    {
+      "exprType":"FUNCTION",
+      "name":"COUNT",
+      "distinct":false,
+      "arguments":[
+        {
+          "column":"Behavior",
+          "exprType":"COLUMN"
+        }]
+    },
+    {
+      "exprType":"FUNCTION",
+      "name":"COUNT",
+      "distinct":false,
+      "arguments":[
+        {
+          "column":"User",
+          "exprType":"COLUMN"
+        }]
+    }],
+  "groupByColumns":[
+  ],
+  "orderByColumns":[
+  ],
+  "where":{
+    "exprType":"IN",
+    "leftExpr":{
+      "column":"Customer",
+      "exprType":"COLUMN"
+    },
+    "not":false,
+    "selectSet":[
+      {
+        "exprType":"STRING_VALUE",
+        "value":"domo"
+      }]
+  }
+}
+
+
+
+
+{
   "data": [{
     "type": "articles",
     "id": "1",
