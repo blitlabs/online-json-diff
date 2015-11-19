@@ -195,11 +195,19 @@
   function compareJson() {
     leftInputView.clearMarkers();
     rightInputView.clearMarkers();
+    var leftText = leftInputView.getText(), rightText = rightInputView.getText();
     var leftJson, rightJson;
     try {
-      leftJson = JSON.parse(leftInputView.getText());
-      rightJson = JSON.parse(rightInputView.getText());
-    } catch (e) {}
+      if (leftText) {
+        leftJson = JSON.parse(leftText);
+      }
+      if (rightText) {
+        rightJson = JSON.parse(rightText);
+      }
+      document.getElementById('error-message').style.display = 'none';
+    } catch (e) {
+      document.getElementById('error-message').style.display = 'inline-block';
+    }
     if (!leftJson || !rightJson) return;
     var diffs = jsonpatch.compare(leftJson, rightJson);
     console.log(diffs);

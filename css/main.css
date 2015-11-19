@@ -47,3 +47,19 @@ h1 {
 .right {
   float: right;
 }
+
+#error-message {
+  display: inline-block;
+  position: relative;
+  right: 64px;
+  top: -11px;
+  color: #DD4444;
+}
+
+#error-message svg {
+  fill: currentColor;
+  width: 16px;
+  height: 16px;
+  position: relative;
+  top: 3px;
+}
