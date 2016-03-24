@@ -212,13 +212,17 @@
     var diffs = jsonpatch.compare(leftJson, rightJson);
     console.log(diffs);
     diffs.forEach(function (diff) {
-      if (diff.op === 'remove') {
-        leftInputView.highlightRemoval(diff);
-      } else if (diff.op === 'add') {
-        rightInputView.highlightAddition(diff);
-      } else if (diff.op === 'replace') {
-        rightInputView.highlightChange(diff);
-        leftInputView.highlightChange(diff);
+      try {
+        if (diff.op === 'remove') {
+          leftInputView.highlightRemoval(diff);
+        } else if (diff.op === 'add') {
+          rightInputView.highlightAddition(diff);
+        } else if (diff.op === 'replace') {
+          rightInputView.highlightChange(diff);  
+          leftInputView.highlightChange(diff);
+        }
+      } catch(e) {
+        console.warn('error while trying to highlight diff', e);
       }
     });
   }
