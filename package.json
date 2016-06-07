@@ -1,0 +1,29 @@
+{
+  "name": "online-json-diff",
+  "version": "1.0.0",
+  "description": "Online JSON Diff finder",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "./node_modules/serve/bin/serve ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/justspamjustin/online-json-diff.git"
+  },
+  "keywords": [
+    "online",
+    "json",
+    "diff",
+    "tool"
+  ],
+  "author": "Justin Martin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/justspamjustin/online-json-diff/issues"
+  },
+  "homepage": "https://github.com/justspamjustin/online-json-diff#readme",
+  "devDependencies": {
+    "serve": "^1.4.0"
+  }
+}
