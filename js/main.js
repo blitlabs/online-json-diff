@@ -5,6 +5,7 @@
     var codemirror = this.codemirror = CodeMirror.fromTextArea(this.el, {
       lineNumbers: true,
       mode: {name: "javascript", json: true},
+      matchBrackets: true,
       theme: 'tomorrow-night'
     });
     var self = this;
@@ -218,7 +219,7 @@
         } else if (diff.op === 'add') {
           rightInputView.highlightAddition(diff);
         } else if (diff.op === 'replace') {
-          rightInputView.highlightChange(diff);  
+          rightInputView.highlightChange(diff);
           leftInputView.highlightChange(diff);
         }
       } catch(e) {
