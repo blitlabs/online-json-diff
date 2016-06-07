@@ -9,4 +9,4 @@ http://json-diff.com
 2. cd to the repo directory
 3. run `npm install`
 4. run `npm start`
-5. go to http://localhost:3000
+5. go to [http://localhost:3000](http://localhost:3000)
