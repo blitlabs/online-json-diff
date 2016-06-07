@@ -10,3 +10,6 @@ http://json-diff.com
 3. run `npm install`
 4. run `npm start`
 5. go to [http://localhost:3000](http://localhost:3000)
+
+## Contribute
+[Check out the contributing.md file](https://github.com/justspamjustin/online-json-diff/blob/master/CONTRIBUTING.md)
