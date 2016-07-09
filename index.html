@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>JSON Diff - Online JSON Diff Finder</title>
     <link rel="stylesheet" href="www/lib/codemirror/lib/codemirror.css" charset="utf-8">
+    <link rel="stylesheet" href="www/lib/codemirror/addon/fold/foldgutter.css" charset="utf-8">
     <link rel="stylesheet" href="www/lib/codemirror/theme/tomorrow-night.css" charset="utf-8">
     <link rel="stylesheet" href="css/main.css" charset="utf-8">
   </head>
@@ -40,10 +41,15 @@
     </div>
     <script src="www/lib/fast-json-patch/dist/json-patch-duplex.min.js" charset="utf-8"></script>
     <script src="www/lib/backbone-events-standalone/backbone-events-standalone.min.js" charset="utf-8"></script>
+    <script src="www/lib/jquery/dist/jquery.min.js" charset="utf-8"></script>
     <script src="www/lib/codemirror/lib/codemirror.js" charset="utf-8"></script>
     <script src="www/lib/codemirror/lib/util/formatting.js" charset="utf-8"></script>
     <script src="www/lib/codemirror/mode/javascript/javascript.js" charset="utf-8"></script>
     <script src="www/lib/codemirror/addon/edit/matchbrackets.js" charset="utf-8"></script>
+    <script src="www/lib/codemirror/addon/edit/closebrackets.js" charset="utf-8"></script>
+    <script src="www/lib/codemirror/addon/fold/brace-fold.js" charset="utf-8"></script>
+    <script src="www/lib/codemirror/addon/fold/foldgutter.js" charset="utf-8"></script>
+    <script src="www/lib/codemirror/addon/fold/foldcode.js" charset="utf-8"></script>
     <script src="js/main.js" charset="utf-8"></script>
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

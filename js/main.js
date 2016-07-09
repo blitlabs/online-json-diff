@@ -6,7 +6,10 @@
       lineNumbers: true,
       mode: {name: "javascript", json: true},
       matchBrackets: true,
-      theme: 'tomorrow-night'
+      theme: 'tomorrow-night',
+      autoCloseBrackets: true,
+      foldGutter: true,
+      gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"]
     });
     var self = this;
 
