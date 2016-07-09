@@ -8,6 +8,10 @@ textarea {
   background-color: transparent;
   resize: none;
 }
+#swap img {
+  width: 32px;
+  height: 32px;
+}
 .json-diff-input {
   width: 50%;
   height: calc(100% - 48px);

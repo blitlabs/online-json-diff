@@ -42,6 +42,10 @@
     return this.codemirror.getValue();
   };
 
+  JsonInputView.prototype.setText = function(text) {
+    this.codemirror.setValue(text);
+  }
+
   JsonInputView.prototype.highlightRemoval = function (diff) {
     this._highlight(diff, '#DD4444');
   };
@@ -182,6 +186,12 @@
 
   var leftInputView = new JsonInputView(document.getElementById('json-diff-left'));
   var rightInputView = new JsonInputView(document.getElementById('json-diff-right'));
+  $('#swap').on('click', function() {
+    var leftViewText = leftInputView.getText();
+    var rightViewText = rightInputView.getText();
+    leftInputView.setText(rightViewText);
+    rightInputView.setText(leftViewText);
+  });
   leftInputView.on('change', compareJson);
   rightInputView.on('change', compareJson);
   leftInputView.codemirror.on('scroll', function () {
