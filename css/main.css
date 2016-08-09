@@ -29,8 +29,12 @@ textarea {
 }
 
 img {
-  padding-top: 8px;
   border: none;
+  vertical-align: middle;
+}
+
+.gh-img {
+  padding-top: 2px;
 }
 
 h1 {
@@ -62,4 +66,13 @@ h1 {
   height: 16px;
   position: relative;
   top: 3px;
+}
+
+
+.book-ad {
+  display: inline-block;
+  padding-right: 8px;
+}
+.book-ad img {
+  height: 48px;
 }
