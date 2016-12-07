@@ -1,6 +1,6 @@
 (function() {
 
-  function JsonInputView(el) {
+  function JsonInputView(el, initialText) {
     this.el = el;
     var codemirror = this.codemirror = CodeMirror.fromTextArea(this.el, {
       lineNumbers: true,
@@ -8,6 +8,9 @@
       matchBrackets: true,
       theme: 'tomorrow-night'
     });
+    if (initialText) {
+      codemirror.setValue(initialText);
+    }
     var self = this;
 
     codemirror.on('inputRead', function (cm, e) {
@@ -47,11 +50,11 @@
   };
 
   JsonInputView.prototype.highlightAddition = function (diff) {
-    this._highlight(diff, '#2E6DFF');
+    this._highlight(diff, isLightTheme() ? '#4ba2ff' : '#2E6DFF');
   };
 
   JsonInputView.prototype.highlightChange = function (diff) {
-    this._highlight(diff, '#9E9E00');
+    this._highlight(diff, isLightTheme() ? '#E5E833' : '#9E9E00');
   };
 
   JsonInputView.prototype._highlight = function (diff, className) {
@@ -177,13 +180,17 @@
     };
   }
 
+  function isLightTheme() {
+    return $('body').hasClass('lighttheme');
+  }
+
   BackboneEvents.mixin(JsonInputView.prototype);
+  var currentDiff = localStorage.getItem('current-diff') && JSON.parse(localStorage.getItem('current-diff'));
 
-
-  var leftInputView = new JsonInputView(document.getElementById('json-diff-left'));
-  var rightInputView = new JsonInputView(document.getElementById('json-diff-right'));
-  leftInputView.on('change', compareJson);
-  rightInputView.on('change', compareJson);
+  var leftInputView = new JsonInputView(document.getElementById('json-diff-left'), currentDiff && currentDiff.left);
+  var rightInputView = new JsonInputView(document.getElementById('json-diff-right'), currentDiff && currentDiff.right);
+  leftInputView.on('change', onInputChange);
+  rightInputView.on('change', onInputChange);
   leftInputView.codemirror.on('scroll', function () {
     var scrollInfo = leftInputView.codemirror.getScrollInfo();
     rightInputView.codemirror.scrollTo(scrollInfo.left, scrollInfo.top);
@@ -192,6 +199,15 @@
     var scrollInfo = rightInputView.codemirror.getScrollInfo();
     leftInputView.codemirror.scrollTo(scrollInfo.left, scrollInfo.top);
   });
+
+  if (currentDiff) {
+    compareJson();
+  }
+
+  function onInputChange() {
+    compareJson();
+    saveDiff();
+  }
 
   function compareJson() {
     leftInputView.clearMarkers();
@@ -211,7 +227,7 @@
     }
     if (!leftJson || !rightJson) return;
     var diffs = jsonpatch.compare(leftJson, rightJson);
-    console.log(diffs);
+    window.diff = diffs;
     diffs.forEach(function (diff) {
       try {
         if (diff.op === 'remove') {
@@ -227,5 +243,22 @@
       }
     });
   }
+
+  function saveDiff() {
+    if (!localStorage.getItem('dont-save-diffs')) {
+      var leftText = leftInputView.getText(), rightText = rightInputView.getText();
+      localStorage.setItem('current-diff', JSON.stringify({
+        left: leftText, right: rightText
+      }));
+    }
+  }
+
+  window.getInputViews = function() {
+    return {
+      left: leftInputView,
+      right: rightInputView
+    };
+  }
+  window.compareJson = compareJson;
 
 })();
