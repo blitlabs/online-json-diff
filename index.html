@@ -28,15 +28,39 @@
         		c-1.908-1.243-2.858-2.807-2.858-4.716l-4.853-130.47c0-2.667,0.953-4.665,2.856-5.996c2.474-2.093,4.758-3.14,6.854-3.14h62.809
         		c2.098,0,4.38,1.043,6.854,3.14c1.902,1.331,2.851,3.14,2.851,5.424L292.088,304.357z"/>
         </svg> Invalid JSON</span>
-        <a href="https://github.com/justspamjustin/online-json-diff" title="fork me on github!"><img src="img/gh.png"/></a>
+        <a href="https://github.com/justspamjustin/online-json-diff" title="fork me on github!">
+          <svg class="header-icon" width="38" height="38" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1664 896q0 251-146.5 451.5t-378.5 277.5q-27 5-39.5-7t-12.5-30v-211q0-97-52-142 57-6 102.5-18t94-39 81-66.5 53-105 20.5-150.5q0-121-79-206 37-91-8-204-28-9-81 11t-92 44l-38 24q-93-26-192-26t-192 26q-16-11-42.5-27t-83.5-38.5-86-13.5q-44 113-7 204-79 85-79 206 0 85 20.5 150t52.5 105 80.5 67 94 39 102.5 18q-40 36-49 103-21 10-45 15t-57 5-65.5-21.5-55.5-62.5q-19-32-48.5-52t-49.5-24l-20-3q-21 0-29 4.5t-5 11.5 9 14 13 12l7 5q22 10 43.5 38t31.5 51l10 23q13 38 44 61.5t67 30 69.5 7 55.5-3.5l23-4q0 38 .5 89t.5 54q0 18-13 30t-40 7q-232-77-378.5-277.5t-146.5-451.5q0-209 103-385.5t279.5-279.5 385.5-103 385.5 103 279.5 279.5 103 385.5z" fill="#fff"/></svg>
+        </a>
+        <div class="settings-menu">
+          <svg class="header-icon" width="38" height="38" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1152 896q0-106-75-181t-181-75-181 75-75 181 75 181 181 75 181-75 75-181zm512-109v222q0 12-8 23t-20 13l-185 28q-19 54-39 91 35 50 107 138 10 12 10 25t-9 23q-27 37-99 108t-94 71q-12 0-26-9l-138-108q-44 23-91 38-16 136-29 186-7 28-36 28h-222q-14 0-24.5-8.5t-11.5-21.5l-28-184q-49-16-90-37l-141 107q-10 9-25 9-14 0-25-11-126-114-165-168-7-10-7-23 0-12 8-23 15-21 51-66.5t54-70.5q-27-50-41-99l-183-27q-13-2-21-12.5t-8-23.5v-222q0-12 8-23t19-13l186-28q14-46 39-92-40-57-107-138-10-12-10-24 0-10 9-23 26-36 98.5-107.5t94.5-71.5q13 0 26 10l138 107q44-23 91-38 16-136 29-186 7-28 36-28h222q14 0 24.5 8.5t11.5 21.5l28 184q49 16 90 37l142-107q9-9 24-9 13 0 25 10 129 119 165 170 7 8 7 22 0 12-8 23-15 21-51 66.5t-54 70.5q26 50 41 98l183 28q13 2 21 12.5t8 23.5z" fill="#fff"/></svg>
+          <div class="settings-menu-content">
+            <label class="menu-item">persist history to local storage <input id="localstorage-toggle" type="checkbox" checked/></label>
+            <label class="menu-item">light theme <input id="lighttheme-toggle" type="checkbox"/></label>
+            <div class="menu-item">
+              <button id="download-diff-button" type="button" name="button">⬇ Download Diff</button>
+            </div>
+          </div>
+        </div>
       </div>
     </header>
-    <div class="json-diff-input">
-      <textarea id="json-diff-left"></textarea>
+    <div class="left-panel">
+      <div id="history-container" class="history-container">
+
+      </div>
+      <div class="ad-container">
+        <script async type="text/javascript" src="http://cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=jsondiffcom" id="_carbonads_js"></script>
+      </div>
     </div>
-    <div class="json-diff-input">
-      <textarea id="json-diff-right"></textarea>
+    <div class="diff-inputs">
+      <div class="json-diff-input">
+        <textarea id="json-diff-left"></textarea>
+      </div>
+      <div class="json-diff-input">
+        <textarea id="json-diff-right"></textarea>
+      </div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="www/lib/fast-json-patch/dist/json-patch-duplex.min.js" charset="utf-8"></script>
     <script src="www/lib/backbone-events-standalone/backbone-events-standalone.min.js" charset="utf-8"></script>
     <script src="www/lib/codemirror/lib/codemirror.js" charset="utf-8"></script>
@@ -53,6 +77,77 @@
       ga('create', 'UA-21007774-21', 'auto');
       ga('send', 'pageview');
 
+    </script>
+    <script>
+      var isLightTheme = localStorage.getItem('lighttheme');
+      if (isLightTheme) {
+        enableLightTheme();
+      }
+      var dontSaveDiffs = localStorage.getItem('dont-save-diffs');
+      if (dontSaveDiffs) {
+        $('#localstorage-toggle').get(0).checked = false;
+      }
+      $('#lighttheme-toggle').on('change', function (e) {
+        toggleLightTheme();
+      });
+
+      $('#localstorage-toggle').on('change', function (e) {
+        if (!e.currentTarget.checked) {
+          localStorage.setItem('dont-save-diffs', true);
+          localStorage.removeItem('current-diff');
+          localStorage.removeItem('diff-history');
+        } else {
+          localStorage.removeItem('dont-save-diffs');
+        }
+
+      });
+
+      $('#download-diff-button').on('click', onClickDownloadDiff);
+
+      function toggleLightTheme() {
+        var isLightTheme = localStorage.getItem('lighttheme');
+        if (isLightTheme) {
+          disableLightTheme();
+        } else {
+          enableLightTheme();
+        }
+      }
+
+      function enableLightTheme() {
+        localStorage.setItem('lighttheme', true);
+        $('body').addClass('lighttheme');
+        $('#lighttheme-toggle').get(0).checked = true;
+        setTheme('default');
+      }
+
+      function disableLightTheme() {
+        localStorage.removeItem('lighttheme');
+        $('body').removeClass('lighttheme');
+        $('#lighttheme-toggle').get(0).checked = false;
+        setTheme('tomorrow-night');
+      }
+
+      function setTheme(theme) {
+        var views = getInputViews();
+        views.left.codemirror.setOption('theme', theme);
+        views.right.codemirror.setOption('theme', theme);
+        compareJson();
+      }
+
+      function onClickDownloadDiff() {
+        var filename = 'diff.json';
+        var text = JSON.stringify(window.diff, null, 2);
+        var element = document.createElement('a');
+        element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+        element.setAttribute('download', filename);
+
+        element.style.display = 'none';
+        document.body.appendChild(element);
+
+        element.click();
+
+        document.body.removeChild(element);
+      }
     </script>
   </body>
 </html>

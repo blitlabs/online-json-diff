@@ -3,6 +3,11 @@ html, body {
   height: 100%;
   background-color: #1D1F21;
 }
+ul, li {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
 textarea {
   border: none;
   background-color: transparent;
@@ -10,7 +15,7 @@ textarea {
 }
 .json-diff-input {
   width: 50%;
-  height: calc(100% - 48px);
+  height: 100%;
   box-sizing: border-box;
   display: inline-block;
   float: left;
@@ -28,9 +33,8 @@ textarea {
   padding: 0 32px;
 }
 
-img {
-  padding-top: 8px;
-  border: none;
+.header-icon {
+  padding-top: 5px;
 }
 
 h1 {
@@ -62,4 +66,185 @@ h1 {
   height: 16px;
   position: relative;
   top: 3px;
+}
+
+.left-panel {
+  width: 200px;
+  height: calc(100% - 48px);
+  float: left;
+  border-right: solid 2px #181A1B;
+  box-sizing: border-box;
+  position: relative;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.history-container {
+  flex: auto;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  margin-bottom: 16px;
+}
+
+.ad-container {
+  flex: auto;
+  box-sizing: border-box;
+  font-family: sans-serif;
+  width: 161px;
+}
+
+#carbonads {
+  border-radius: 4px 2px;
+  background-color: #292929;
+  padding: 16px;
+}
+
+.ad-container a {
+  display: block;
+}
+
+.carbon-img {
+  text-align: center;
+  padding-bottom: 12px;
+}
+
+.carbon-text {
+  color: #e4e4e4;
+  font-size: 12px;
+}
+
+.carbon-poweredby {
+  color: #9a9a9a;
+  font-size: 10px;
+}
+
+.diff-inputs {
+  width: calc(100% - 200px);
+  float: left;
+  height: calc(100% - 48px);
+}
+
+.settings-menu {
+  float: right;
+  position: relative;
+  margin-left: 8px;
+}
+
+.settings-menu-content {
+  display: none;
+  position: absolute;
+  z-index: 4;
+  padding: 16px;
+  right: 0;
+  background-color: #0f1010;
+}
+
+.settings-menu-content:hover {
+  display: block;
+}
+
+.settings-menu:hover {
+  background-color: #0f1010;
+}
+
+.settings-menu:hover .settings-menu-content {
+  display: block;
+
+}
+
+.menu-item {
+  white-space: nowrap;
+  display: block;
+  text-align: right;
+}
+
+.menu-item:not(:last-child) {
+  padding-bottom: 8px;
+}
+
+.menu-item:hover {
+  cursor: pointer;
+}
+
+body.lighttheme {
+  background-color: #f9f9f9;
+}
+
+.lighttheme #header {
+  color: #1D1F21;
+  background-color: #f9f9f9;
+}
+
+.lighttheme .header-icon path {
+  fill: #1D1F21;
+}
+
+.lighttheme .settings-menu-content {
+  background-color: #eaeaea;
+}
+
+.lighttheme .settings-menu:hover {
+  background-color: #eaeaea;
+}
+
+.lighttheme .left-panel {
+  border-right-color: #dddddd;
+  border-right-width: 1px;
+}
+
+.lighttheme #carbonads {
+  background-color: transparent;
+  border: solid 2px #dddddd;
+}
+
+.lighttheme .carbon-text {
+  color: #1D1F21;
+}
+
+button {
+  border: 0;
+  background-color: #2E6DFF;
+  color: white;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-family: monospace;
+  padding: 8px;
+  letter-spacing: 2px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #2458d0;
+}
+
+button:active {
+  background-color: #1f4ebb;
+}
+
+.diff-history-item {
+  color: white;
+  font-family: monospace;
+  padding: 8px 0;
+  width: 100%;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.diff-history-item:hover {
+  background-color: #2d2d2d;
+}
+
+.history-timestamp {
+  white-space: nowrap;
+  width: 100%;
+  overflow: hidden;
+}
+
+.history-string {
+  word-break: break-all;
+  width: 100%;
+  overflow: hidden;
+  color: #a2a2a2;
 }
