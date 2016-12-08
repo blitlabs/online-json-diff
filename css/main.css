@@ -44,6 +44,14 @@ h1 {
   padding-top: 6px;
 }
 
+h2 {
+  font-weight: lighter;
+  color: #bbb;
+  margin: 0;
+  padding: 12px;
+  padding-left: 32px;
+}
+
 .left {
   float: left;
 }
