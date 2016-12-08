@@ -1,4 +1,16 @@
 (function() {
+  _.templateSettings = {
+    interpolate: /\{\{(.+?)\}\}/g
+  };
+  var historyItemTemplate = _.template('\
+  <li class="diff-history-item" onclick="onClickHistoryItem({{index}})">\
+    <span class="history-timestamp">{{time}}</span>\
+    <span class="history-string">{{historyString}}</span>\
+  </li>');
+  var diffHistoryStr = localStorage.getItem('diff-history');
+  var diffHistory = diffHistoryStr ? JSON.parse(diffHistoryStr) : [];
+  var dontTriggerSaveDiff = false;
+  renderDiffHistory();
 
   function JsonInputView(el, initialText) {
     this.el = el;
@@ -43,6 +55,10 @@
 
   JsonInputView.prototype.getText = function () {
     return this.codemirror.getValue();
+  };
+
+  JsonInputView.prototype.setText = function (text) {
+    return this.codemirror.setValue(text);
   };
 
   JsonInputView.prototype.highlightRemoval = function (diff) {
@@ -207,6 +223,7 @@
   function onInputChange() {
     compareJson();
     saveDiff();
+    debouncedSaveHistory();
   }
 
   function compareJson() {
@@ -246,11 +263,54 @@
 
   function saveDiff() {
     if (!localStorage.getItem('dont-save-diffs')) {
-      var leftText = leftInputView.getText(), rightText = rightInputView.getText();
-      localStorage.setItem('current-diff', JSON.stringify({
-        left: leftText, right: rightText
-      }));
+      var currentDiff = getCurrentDiff();
+      localStorage.setItem('current-diff', currentDiff);
     }
+  }
+  var debouncedSaveHistory = _.debounce(saveHistory, 5000);
+  function saveHistory() {
+    if (dontTriggerSaveDiff) {
+      dontTriggerSaveDiff = false;
+      return;
+    }
+    var currentDiff = getCurrentDiff();
+    if (window.diff) {
+      diffHistory.push({
+        time: Date.now(),
+        diff: currentDiff
+      });
+      renderDiffHistory();
+      forceMaxArraySize(diffHistory, 20);
+      if (!localStorage.getItem('dont-save-diffs')) {
+        localStorage.setItem('diff-history', JSON.stringify(diffHistory));
+      }
+    }
+  }
+
+  function forceMaxArraySize(arr, size) {
+    var over = arr.length - size;
+    arr.splice(0, over);
+  }
+
+  function getCurrentDiff() {
+    var leftText = leftInputView.getText(), rightText = rightInputView.getText();
+    return JSON.stringify({
+      left: leftText, right: rightText
+    });
+  }
+
+  function renderDiffHistory() {
+    var inner = _.reduceRight(diffHistory, function (acc, item, i) {
+      var diff = JSON.parse(item.diff);
+      acc += historyItemTemplate({
+        time: new Date(item.time),
+        historyString: (diff.left + ' ' + diff.right).substr(0, 40),
+        index: i
+      });
+      return acc;
+    }, '');
+    var html = '<ul class="diff-history-list">' + inner + '</ul>';
+    $('#history-container').html(html);
   }
 
   window.getInputViews = function() {
@@ -260,5 +320,13 @@
     };
   }
   window.compareJson = compareJson;
-
+  window.onClickHistoryItem = function (i) {
+    var item = diffHistory[i];
+    var diff = JSON.parse(item.diff);
+    if (diff.left !== leftInputView.getText() && diff.right !== rightInputView.getText()) {
+      dontTriggerSaveDiff = true;
+    }
+    leftInputView.setText(diff.left);
+    rightInputView.setText(diff.right);
+  }
 })();

@@ -3,6 +3,11 @@ html, body {
   height: 100%;
   background-color: #1D1F21;
 }
+ul, li {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
 textarea {
   border: none;
   background-color: transparent;
@@ -71,21 +76,23 @@ h1 {
   box-sizing: border-box;
   position: relative;
   padding: 16px;
-  display: table;
+  display: flex;
+  flex-direction: column;
 }
 
 .history-container {
-  display: table-row;
+  flex: auto;
   height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  margin-bottom: 16px;
 }
 
 .ad-container {
-  display: table-row;
+  flex: auto;
   box-sizing: border-box;
   font-family: sans-serif;
-
   width: 161px;
-
 }
 
 #carbonads {
@@ -214,4 +221,30 @@ button:hover {
 
 button:active {
   background-color: #1f4ebb;
+}
+
+.diff-history-item {
+  color: white;
+  font-family: monospace;
+  padding: 8px 0;
+  width: 100%;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.diff-history-item:hover {
+  background-color: #2d2d2d;
+}
+
+.history-timestamp {
+  white-space: nowrap;
+  width: 100%;
+  overflow: hidden;
+}
+
+.history-string {
+  word-break: break-all;
+  width: 100%;
+  overflow: hidden;
+  color: #a2a2a2;
 }
