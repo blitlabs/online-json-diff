@@ -236,6 +236,14 @@ button:active {
   background-color: #2d2d2d;
 }
 
+.lighttheme .diff-history-item {
+  color: #1D1F21;
+}
+
+.lighttheme .diff-history-item:hover {
+  background-color: #e4e4e4;
+}
+
 .history-timestamp {
   white-space: nowrap;
   width: 100%;
