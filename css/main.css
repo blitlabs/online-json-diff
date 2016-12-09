@@ -14,15 +14,80 @@ textarea {
   resize: none;
 }
 .json-diff-input {
-  width: 50%;
   height: 100%;
   box-sizing: border-box;
   display: inline-block;
   float: left;
+  position: relative;
 }
 
 .json-diff-input .CodeMirror {
   height: 100%;
+}
+
+.json-diff-input:hover .input-buttons {
+  opacity: 1;
+}
+
+.json-diff-input.collapse .input-buttons {
+  display: none;
+}
+
+.input-buttons a:hover {
+  opacity: .7;
+}
+
+.json-diff-input .input-buttons {
+  transition: opacity .2s;
+  opacity: 0;
+  position: absolute;
+  right: 8px;
+  top: 0;
+  z-index: 4;
+}
+
+.json-diff-input .input-buttons a {
+  color: white;
+  text-decoration: none;
+  font-size: 26px;
+}
+
+.lighttheme .json-diff-input .input-buttons a {
+  color: #1D1F21;
+}
+
+.json-diff-input .input-buttons a.input-split {
+  font-size: 33px;
+  position: relative;
+  top: 5px;
+}
+
+.json-diff-input {
+  transition: width .3s;
+}
+
+.json-diff-input.split {
+  width: 50%;
+}
+
+.json-diff-input.collapse {
+  width: 0%;
+}
+
+.json-diff-input.expand {
+  width: 100%;
+}
+
+.json-diff-input.split .input-split {
+  display: none;
+}
+
+.json-diff-input.collapse .input-collapse {
+  display: none;
+}
+
+.json-diff-input.expand .input-expand {
+  display: none;
 }
 
 #header {

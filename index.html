@@ -53,11 +53,21 @@
       </div>
     </div>
     <div class="diff-inputs">
-      <div class="json-diff-input">
+      <div id="left-input" class="json-diff-input split">
         <textarea id="json-diff-left"></textarea>
+        <span class="input-buttons">
+          <a class="input-collapse" href="#">–</a>
+          <a class="input-split" href="#">◫</a>
+          <a class="input-expand" href="#">☐</a>
+        </span>
       </div>
-      <div class="json-diff-input">
+      <div id="right-input" class="json-diff-input split">
         <textarea id="json-diff-right"></textarea>
+        <span class="input-buttons">
+          <a class="input-collapse" href="#">–</a>
+          <a class="input-split" href="#">◫</a>
+          <a class="input-expand" href="#">☐</a>
+        </span>
       </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
@@ -104,6 +114,8 @@
       });
 
       $('#download-diff-button').on('click', onClickDownloadDiff);
+      $('#left-input').on('click', '.input-collapse,.input-split,.input-expand', onPaneResizeLeftClick);
+      $('#right-input').on('click', '.input-collapse,.input-split,.input-expand', onPaneResizeRightClick);
 
       function toggleLightTheme() {
         var isLightTheme = localStorage.getItem('lighttheme');
@@ -148,6 +160,34 @@
         element.click();
 
         document.body.removeChild(element);
+      }
+
+      function onPaneResizeLeftClick(e) {
+        onResize(e, 'left');
+      }
+
+      function onPaneResizeRightClick(e) {
+        onResize(e, 'right');
+      }
+
+      function onResize(e, side) {
+        e.preventDefault();
+        var otherSide = side === 'left' ? 'right' : 'left';
+        var clickClass = e.currentTarget.className;
+        $('.json-diff-input').removeClass('split');
+        $('.json-diff-input').removeClass('expand');
+        $('.json-diff-input').removeClass('collapse');
+        var sideClass = 'split';
+        var otherSideClass = 'split';
+        if (clickClass === 'input-collapse') {
+          sideClass = 'collapse';
+          otherSideClass = 'expand';
+        } else if (clickClass === 'input-expand') {
+          sideClass = 'expand';
+          otherSideClass = 'collapse';
+        }
+        $('#' + side + '-input').addClass(sideClass);
+        $('#' + otherSide + '-input').addClass(otherSideClass);
       }
     </script>
   </body>
