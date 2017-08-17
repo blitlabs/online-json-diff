@@ -86,106 +86,24 @@
     });
   }
 
-  function getStartAndEndPosOfDiff(textValue, diff) {
-    var findPath = diff.path;
-    var contexts = {
-      ARRAY: 'ARRAY',
-      OBJECT: 'OBJECT'
-    };
-    var QUOTE = '"';
-    var OBJ_OPEN = '{';
-    var OBJ_CLOSE = '}';
-    var ARR_OPEN = '[';
-    var ARR_CLOSE = ']';
-    var SEPARATOR = ',';
-    var ESCAPE = '\\';
-    var NL = '\n';
-    var OBJ_PROPERTY_RGX = /^"([^"]|\\")*"(?=\s*:)/g;
-    var startPos, endPos, currChar, prevChar, currPath = [], contextStack = [], line = 0, ch = 0, inString = false;
-    for (var i = 0; i < textValue.length; i++) {
-      ch++;
-      currChar = textValue[i];
-      if (currChar === NL) {
-        line++;
-        ch = 0;
-      } else if (currChar === OBJ_OPEN) {
-        currPath.push(null);
-        contextStack.push(contexts.OBJECT);
-      } else if (currChar === ARR_OPEN) {
-        currPath.push(0);
-        contextStack.push(contexts.ARRAY);
-      } else if (currChar === QUOTE && !inString && prevChar !== ESCAPE) {
-        inString = true;
-        var prop = getNextObjProperty(i);
-        if (prop) {
-          currPath.push(prop);
-        }
-      } else if (currChar === SEPARATOR && !inString) {
-        if (context() === contexts.ARRAY) {
-          var currArrayIdx = currPath[currPath.length - 1];
-          currArrayIdx  = typeof(currArrayIdx ) === 'number' ? currArrayIdx  + 1 : 0;
-          currPath.pop();
-          currPath.push(currArrayIdx);
-        } else {
-          currPath.pop();
-        }
-      } else if (currChar === QUOTE && inString) {
-        inString = false;
-      } else if (currChar === OBJ_CLOSE) {
-        contextStack.pop();
-        currPath.pop();
-        // look behind for empty object
-        var matches = textValue.split('').reverse().join('').substr(textValue.length - i).match(/^\s*{/g) || [];
-        var isEmptyObject = matches.length > 0;
-        if (!isEmptyObject) {
-          currPath.pop();
-        }
-      } else if (currChar === ARR_CLOSE) {
-        contextStack.pop();
-        currPath.pop();
-      }
-
-      var currPathStr = '/' + currPath.filter(function (item) {
-        return item !== null;
-      }).join('/');
-      if (currPathStr === findPath && !startPos) {
-        startPos = {
-          line: line,
-          ch: ch - 1
+    function getStartAndEndPosOfDiff(textValue, diff) {
+        var result = parse(textValue);
+        var pointers = result.pointers;
+        var key = diff.path;
+        var start = {
+            line: pointers[key].key.line,
+            ch: pointers[key].key.column
         };
-      } else if (currPathStr.indexOf(findPath) === 0 && !(/\s/g).test(currChar)) {
-        endPos = {
-          line: line,
-          ch: ch
+        var end = {
+            line: pointers[key].valueEnd.line,
+            ch: pointers[key].valueEnd.column
         };
-      }
 
-      prevChar = currChar;
+        return {
+            start: start,
+            end: end
+        }
     }
-
-    function getNextObjProperty(idx) {
-      var matches = textValue.substr(idx).match(OBJ_PROPERTY_RGX) || [];
-      var next = matches[0];
-      if (next) {
-        next = next.substr(1, next.length - 2);
-      }
-      return next;
-    }
-
-    function followedByComma(idx) {
-      var matches = textValue.substr(idx + 1).match(/^\s*,/g) || [];
-      return matches.length > 0;
-    }
-
-    function context() {
-      return contextStack[contextStack.length - 1];
-    }
-
-    return {
-      start: startPos,
-      end: endPos
-    }
-  }
 
   function indexToPos(textValue, i) {
     var beginStr = textValue.substr(0, i);
