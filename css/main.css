@@ -2,6 +2,7 @@ html, body {
   margin: 0; padding: 0;
   height: 100%;
   background-color: #1D1F21;
+  overflow: hidden;
 }
 ul, li {
   padding: 0;
@@ -174,6 +175,10 @@ h2 {
   padding: 16px;
 }
 
+.lighttheme #carbonads {
+  margin-bottom: 16px;
+}
+
 .ad-container a {
   display: block;
 }
@@ -328,4 +333,27 @@ button:active {
   width: 100%;
   overflow: hidden;
   color: #a2a2a2;
+}
+
+.made-by-text {
+  margin-top: 8px;
+  padding-top: 8px;
+  background-color: #1D1F21;
+  margin-left: -16px;
+  padding-left: 16px;
+  margin-right: -16px;
+  padding-right: 16px;
+  margin-bottom: -24px;
+  padding-bottom: 16px;
+}
+
+.made-by-text a {
+  text-decoration: none;
+  color: #e4e4e4;
+  font-family: monospace;
+}
+
+.made-by-text img {
+  height: 15px;
+  vertical-align: text-bottom;
 }
