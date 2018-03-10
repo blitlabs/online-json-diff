@@ -50,7 +50,13 @@
 
       </div>
       <div class="ad-container">
-        <script async type="text/javascript" src="http://cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=jsondiffcom" id="_carbonads_js"></script>
+        <div id="carbonads">
+          <span>
+            <span id="ad-wrap" class="carbon-wrap">
+              <a href="https://blitapp.com?ref=json-diff-txt" class="carbon-text" target="_blank" rel="noopener">Screenshots of websites to your inbox. Try it free.</a>
+            </span>
+          </span>
+        </div>
       </div>
       <div class="made-by-text"><a href="https://blitapp.com?ref=json-diff" target="_blank" rel="noopener noreferrer">made with ♥ by <img src="img/blit_logo.svg"/></a></div>
     </div>
@@ -93,6 +99,7 @@
 
     </script>
     <script>
+      initAd();
       var isLightTheme = localStorage.getItem('lighttheme');
       if (isLightTheme) {
         enableLightTheme();
@@ -119,6 +126,12 @@
       $('#download-diff-button').on('click', onClickDownloadDiff);
       $('#left-input').on('click', '.input-collapse,.input-split,.input-expand', onPaneResizeLeftClick);
       $('#right-input').on('click', '.input-collapse,.input-split,.input-expand', onPaneResizeRightClick);
+
+      function initAd() {
+        var adNum = Math.floor(Math.random() * Math.floor(3)) + 1;
+        var ad = $('<a href="https://blitapp.com?ref=json-diff-img'+adNum+'" class="carbon-img" target="_blank" rel="noopener"><img src="/img/blit-ad'+adNum+'.png" alt="Blit - Scheduled Website Screenshots" border="0" height="100" width="130" style="max-width: 130px;"></a>');
+        $('#ad-wrap').prepend(ad);
+      }
 
       function toggleLightTheme() {
         var isLightTheme = localStorage.getItem('lighttheme');
