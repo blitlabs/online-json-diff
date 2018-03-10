@@ -210,10 +210,19 @@ h2 {
   margin-left: 8px;
 }
 
+.settings-menu-content:before {
+  content: '';
+  display: block;
+  height: 40px;
+  width: 100%;
+  position: absolute;
+  top: -40px;
+}
+
 .settings-menu-content {
   display: none;
   position: absolute;
-  z-index: 4;
+  z-index: 5;
   padding: 16px;
   right: 0;
   background-color: #0f1010;
