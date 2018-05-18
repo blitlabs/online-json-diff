@@ -73,30 +73,30 @@
     this._highlight(diff, isLightTheme() ? '#E5E833' : '#9E9E00');
   };
 
-  JsonInputView.prototype._highlight = function (diff, className) {
+  JsonInputView.prototype._highlight = function (diff, color) {
     var pos = getStartAndEndPosOfDiff(this.getText(), diff);
     this.codemirror.markText(pos.start, pos.end, {
-      css: 'background-color: ' + className
+      css: 'background-color: ' + color
     });
-  }
+  };
 
   JsonInputView.prototype.clearMarkers = function () {
     this.codemirror.getAllMarks().forEach(function (marker) {
       marker.clear();
     });
-  }
+  };
 
     function getStartAndEndPosOfDiff(textValue, diff) {
         var result = parse(textValue);
         var pointers = result.pointers;
-        var key = diff.path;
+        var path = diff.path;
         var start = {
-            line: pointers[key].key.line,
-            ch: pointers[key].key.column
+            line: pointers[path].key ? pointers[path].key.line : pointers[path].value.line,
+            ch: pointers[path].key ? pointers[path].key.column : pointers[path].value.column
         };
         var end = {
-            line: pointers[key].valueEnd.line,
-            ch: pointers[key].valueEnd.column
+            line: pointers[path].valueEnd.line,
+            ch: pointers[path].valueEnd.column
         };
 
         return {
@@ -163,6 +163,7 @@
     if (!leftJson || !rightJson) return;
     var diffs = jsonpatch.compare(leftJson, rightJson);
     window.diff = diffs;
+    // debugger;
     diffs.forEach(function (diff) {
       try {
         if (diff.op === 'remove') {
