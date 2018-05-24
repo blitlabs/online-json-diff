@@ -163,7 +163,7 @@
     if (!leftJson || !rightJson) return;
     var diffs = jsonpatch.compare(leftJson, rightJson);
     window.diff = diffs;
-    // debugger;
+
     diffs.forEach(function (diff) {
       try {
         if (diff.op === 'remove') {
