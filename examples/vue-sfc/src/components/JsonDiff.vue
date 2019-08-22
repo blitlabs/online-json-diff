@@ -2,15 +2,14 @@
   <div>
     <table style="width:100%">
       <tr>
-        <td>
+        <td @mouseover="enableScrollLeftBox" @mouseleave="disableScrollLeftBox">
           <codemirror ref="leftBox" :value="documentA" :options="cmOptions"></codemirror>
         </td>
-        <td>
+        <td @mouseover="enableScrollRightBox" @mouseleave="disableScrollRightBox">
           <codemirror ref="rightBox" :value="documentB" :options="cmOptions"></codemirror>
         </td>
       </tr>
     </table>
-    <button @click="markChanges">Show Changes</button>
   </div>
 </template>
 
@@ -25,15 +24,15 @@ export default {
   name: "JsonDiff",
   components: {
     codemirror,
-    compare,
-    parse
   },
   data() {
     return {
       documentA:
-        '{ "firstName": "Albert", "lastName": "Einstein", "speed": "50", "groups": [ { "name": "test", "id": 4, "test1": "0", "test2": "0" }] }',
+        '{ "firstName": "Albert", "lastName": "Einstein", "speed": "50", "groups": [ { "name": "silvia", "id": 4, "gender": "f", "city": "berlin" }, { "name": "franz", "id": 3, "gender": "m", "city": "Seattle" }, { "name": "norbert", "id": 2, "gender": "m", "city": "new york" }] }',
       documentB:
-        '{ "firstName": "Albert", "lastName": "Collins", "age": "18", "groups": [ { "name": "thomas", "id": 4, "test2": "0", "test1": "1" }] }',
+        '{ "firstName": "Albert", "lastName": "Collins", "age": "18", "groups": [ { "name": "thomas", "id": 4, "gender": "m", "city": "london" }, { "name": "franz", "id": 3, "gender": "m", "city": "Seattle" }, { "name": "norbert", "id": 2, "gender": "m", "city": "new york" }, { "name": "renate", "id": 8, "gender": "f", "city": "sydney" } ] }',
+      leftBoxScrollingActive:false,
+      rightBoxScrollingActive:false,
       cmOptions: {
         mode: {
           name: "javascript",
@@ -50,6 +49,48 @@ export default {
     });
   },
   methods: {
+    enableScrollLeftBox() {
+      if (this.leftBoxScrollingActive) {
+        return;
+      }
+
+      this.leftBoxScrollingActive = true;
+      this.$refs.leftBox.codemirror.on('scroll', this.syncScrollLeftBox);
+    },
+    disableScrollLeftBox() {
+      if (!this.leftBoxScrollingActive) {
+        return;
+      }
+
+      this.leftBoxScrollingActive = false;
+      this.$refs.leftBox.codemirror.off('scroll', this.syncScrollLeftBox);
+    },
+    syncScrollLeftBox()
+    {
+        var scrollInfo = this.$refs.leftBox.codemirror.getScrollInfo();
+        this.$refs.rightBox.codemirror.scrollTo(scrollInfo.left, scrollInfo.top);
+    },
+    enableScrollRightBox() {
+      if (this.rightBoxScrollingActive) {
+        return;
+      }
+
+      this.rightBoxScrollingActive = true;
+      this.$refs.rightBox.codemirror.on('scroll', this.syncScrollRightBox);
+    },
+    disableScrollRightBox() {
+      if (!this.rightBoxScrollingActive) {
+        return;
+      }
+
+      this.rightBoxScrollingActive = false;
+      this.$refs.rightBox.codemirror.off('scroll', this.syncScrollRightBox);
+    },
+    syncScrollRightBox()
+    {
+        var scrollInfo = this.$refs.rightBox.codemirror.getScrollInfo();
+        this.$refs.leftBox.codemirror.scrollTo(scrollInfo.left, scrollInfo.top);
+    },
     prepareDocuments() {
       let spaceCount = 4;
       this.documentA = JSON.stringify(
