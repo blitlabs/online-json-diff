@@ -1,6 +1,6 @@
 # online-json-diff
 
-http://json-diff.com
+https://json-diff.com
 
 ![screenshot](https://raw.github.com/justspamjustin/online-json-diff/master/img/screen.png)
 
