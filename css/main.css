@@ -183,21 +183,6 @@ h2 {
   display: block;
 }
 
-.carbon-img {
-  text-align: center;
-  padding-bottom: 12px;
-}
-
-.carbon-text {
-  color: #e4e4e4;
-  font-size: 12px;
-}
-
-.carbon-poweredby {
-  color: #9a9a9a;
-  font-size: 10px;
-}
-
 .diff-inputs {
   width: calc(100% - 200px);
   float: left;
@@ -281,13 +266,8 @@ body.lighttheme {
   border-right-width: 1px;
 }
 
-.lighttheme #carbonads {
-  background-color: transparent;
-  border: solid 2px #dddddd;
-}
-
-.lighttheme .carbon-text {
-  color: #1D1F21;
+.lighttheme .ad-container * {
+  color: #1D1F21 !important;
 }
 
 button {
