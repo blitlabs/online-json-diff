@@ -2,61 +2,158 @@
 <html>
 <head>
   <style>
-    .tier-grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-around;
-      padding: 10px;
-    }
-    .tier-card {
-      width: 200px;
-      border: 1px solid #ddd;
-      border-radius: 5px;
-      margin: 10px;
-      padding: 10px;
-      text-align: center;
-    }
-    .tier-title {
-      font-size: 1.5em;
-      color: #333;
-    }
-    .tier-price {
-      font-size: 1.2em;
-      color: #333;
-    }
-    .tier-description {
-      color: #666;
-    }
-    .tier-annotation {
-      color: #999;
-    }
-    .tier-button {
-      background-color: #009688;
-      color: white;
-      padding: 10px 20px;
-      text-align: center;
-      text-decoration: none;
-      display: inline-block;
-      font-size: 16px;
-      margin: 10px 2px;
-      cursor: pointer;
-    }
-    .tier-button:hover {
-      background-color: #007d71;
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #F7F7F7;
     }
 
+    header {
+      text-align: center;
+    }
+
+    h1 {
+      margin: 0;
+      padding: 0;
+      font-weight: lighter;
+      text-transform: lowercase;
+      padding-top: 6px;
+    }
+
+    h2 {
+      font-weight: lighter;
+      color: #bbb;
+      margin: 0;
+      padding: 12px;
+      padding-left: 32px;
+    }
+
+    .tier-grid {
+      display: flex;
+      font-family: 'Roboto', sans-serif;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      max-width: 1087px;
+      margin: auto;
+    }
+
+    .tier-card {
+      width: 320px;
+      padding: 20px;
+      box-sizing: border-box;
+      margin: 20px;
+      border: 1px solid #ccc;
+      box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.1);
+      background-color: #FFFFFF;
+    }
+
+    .tier-card h3 {
+      margin: 0;
+    }
+
+    .tier-card .price {
+      font-size: 1.5em;
+      margin: 10px 0;
+    }
+
+    .tier-card a {
+      display: block;
+      padding: 10px;
+      margin: 10px 0;
+      background-color: #2E6DFF;
+      color: #fff;
+      text-decoration: none;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .tier-card a:hover {
+      background-color: #2458d0;
+    }
+
+    .tier-card ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .tier-limit {
+      color: #777;
+      font-size: 14px;
+    }
+
+    .tier-benefits-list {
+      padding-left: 20px;
+    }
+
+    .tier-description {
+      height: 145px;
+    }
+
+    .advertiser-card .tier-description {
+      height: 190px;
+    }
   </style>
+  <title>JSON Diff - Sponsorship</title>
 </head>
 <body>
+<header>
+  <h1>{} Json Diff</h1>
+  <h2>We appreciate your support</h2>
+</header>
 <div class="tier-grid">
   <div class="tier-card">
-    <h3 class="tier-title">Patron</h3>
-    <div class="tier-price">$1 / month</div>
-    <p class="tier-description">Your support matters! In appreciation, we offer to mention your name or business name (with optional hyperlink) in a new sponsors popup on <a href="http://json-diff.com" target="_blank">json-diff.com</a>. We thank you for your contribution to our work!</p>
-    <a href="/join/json_diff/checkout?rid=9821250" class="tier-button">Join</a>
-    <div class="tier-annotation">Name shown under sponsors on json-diff.com</div>
+    <h3>Patron</h3>
+    <div class="price">$1 / month</div>
+    <p class="tier-description">Your support matters! In appreciation, we offer to mention your name or business name (with optional hyperlink) in a new sponsors popup on json-diff.com. We thank you for your contribution to our work!</p>
+    <a href="https://www.patreon.com/join/json_diff/checkout?rid=9821250">Join on Patreon</a>
+    <ul>
+      <li>Name shown under sponsors on json-diff.com</li>
+    </ul>
   </div>
-  <!-- Add more tier-cards here -->
+
+  <div class="tier-card">
+    <h3>Sponsor</h3>
+    <div class="price">$5 / month</div>
+    <p class="tier-description">With your valued support, we can continue to improve json-diff.com. As a token of our gratitude, we offer to list your name or business name (with optional hyperlink) in our sponsors popup. Thank you for backing our mission!</p>
+    <a href="https://www.patreon.com/join/json_diff/checkout?rid=9821252">Join on Patreon</a>
+    <ul>
+      <li>Name shown under sponsors on json-diff.com</li>
+    </ul>
+  </div>
+
+  <div class="tier-card">
+    <h3>Benefactor</h3>
+    <div class="price">$10 / month</div>
+    <p class="tier-description">Your generous support fuels our work! We'd like to recognize you by featuring your name or business name (with an optional hyperlink) in our sponsors popup on json-diff.com. Your contribution makes a difference!</p>
+    <a href="https://www.patreon.com/join/json_diff/checkout?rid=9821255">Join on Patreon</a>
+    <ul>
+      <li>Name shown under sponsors on json-diff.com</li>
+    </ul>
+  </div>
+
+  <div class="tier-card advertiser-card">
+    <h3>Text Banner Advertiser</h3>
+    <p><div class="tier-limit">Limit 1 subscriber</div></p>
+    <div class="price">$25 / month</div>
+    <p class="tier-description">Want to reach a highly engaged tech audience of 3,000+ monthly active users? With this tier, you can have a dedicated text banner ad of up to 200 characters, displayed in a footer on json-diff.com, without rotation. Ads may not contain scripts and are subject to approval.</p>
+    <a href="https://www.patreon.com/join/json_diff/checkout?rid=9821264">Join on Patreon</a>
+    <ul class="tier-benefits-list">
+      <li>Dedicated Text Ad Displayed on json-diff.com</li>
+    </ul>
+  </div>
+
+  <div class="tier-card advertiser-card">
+    <h3>Image Advertiser</h3>
+    <p><div class="tier-limit">Limit 1 subscriber</div></p>
+    <div class="price">$50 / month</div>
+    <p class="tier-description">Looking to maximize your visibility? This tier allows you to display an image (130x100 pixels) + text ad (100 characters max) on json-diff.com in the bottom left corner of the page. This is an excellent way to connect with our tech-focused audience of 3,000+ monthly active users. Ads may not contain scripts and are subject to approval.</p>
+    <a href="https://www.patreon.com/join/json_diff/checkout?rid=9821275">Join on Patreon</a>
+    <ul class="tier-benefits-list">
+      <li>Dedicated Text Ad Displayed on json-diff.com</li>
+    </ul>
+  </div>
 </div>
 </body>
 </html>
