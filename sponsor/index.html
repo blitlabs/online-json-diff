@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .tier-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      padding: 10px;
+    }
+    .tier-card {
+      width: 200px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      margin: 10px;
+      padding: 10px;
+      text-align: center;
+    }
+    .tier-title {
+      font-size: 1.5em;
+      color: #333;
+    }
+    .tier-price {
+      font-size: 1.2em;
+      color: #333;
+    }
+    .tier-description {
+      color: #666;
+    }
+    .tier-annotation {
+      color: #999;
+    }
+    .tier-button {
+      background-color: #009688;
+      color: white;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 10px 2px;
+      cursor: pointer;
+    }
+    .tier-button:hover {
+      background-color: #007d71;
+    }
+
+  </style>
+</head>
+<body>
+<div class="tier-grid">
+  <div class="tier-card">
+    <h3 class="tier-title">Patron</h3>
+    <div class="tier-price">$1 / month</div>
+    <p class="tier-description">Your support matters! In appreciation, we offer to mention your name or business name (with optional hyperlink) in a new sponsors popup on <a href="http://json-diff.com" target="_blank">json-diff.com</a>. We thank you for your contribution to our work!</p>
+    <a href="/join/json_diff/checkout?rid=9821250" class="tier-button">Join</a>
+    <div class="tier-annotation">Name shown under sponsors on json-diff.com</div>
+  </div>
+  <!-- Add more tier-cards here -->
+</div>
+</body>
+</html>
