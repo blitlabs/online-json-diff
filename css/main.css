@@ -169,6 +169,18 @@ h2 {
   width: 161px;
 }
 
+body:not(.lighttheme) .ad-container {
+  color: #fff;
+}
+
+.ad-container h6 {
+  margin: 8px 0;
+}
+
+.ad-container ul {
+  padding: 8px 0;
+}
+
 #carbonads {
   border-radius: 4px 2px;
   background-color: #292929;
