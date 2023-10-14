@@ -49,15 +49,15 @@
       <div id="history-container" class="history-container">
 
       </div>
-      <div class="ad-container">
-        <div>
+      <div class="bottom-left-container">
+        <div class="supporters">
           <h6> SPECIAL THANKS TO OUR SUPPORTERS</h6>
           <ul>
             <li>Qicheng Gao</li>
           </ul>
         </div>
-        <a href="/sponsor/" title="Support us on Patreon">
-          <img src="./img/patreon.png" alt="Support us on Patreon"/>
+        <a class="bottom-left-image-link" href="https://www.kickstarter.com/projects/blit-labs/pulsewave-hear-the-news-in-your-own-way-every-day" title="PulseWave - Audible for news." target="_blank">
+
         </a>
       </div>
     </div>
@@ -129,9 +129,9 @@
       $('#right-input').on('click', '.input-collapse,.input-split,.input-expand', onPaneResizeRightClick);
 
       function initAd() {
-        var adNum = Math.floor(Math.random() * Math.floor(3)) + 1;
-        var ad = $('<a href="https://blitapp.com?ref=json-diff-img'+adNum+'" class="carbon-img" target="_blank" rel="noopener"><img src="/img/blit-ad'+adNum+'.png" alt="Blit - Scheduled Website Screenshots" border="0" height="100" width="130" style="max-width: 130px;"></a>');
-        $('#ad-wrap').prepend(ad);
+        var imgNum = Math.floor(Math.random() * Math.floor(3)) + 1;
+        var img = '<img src="/img/pulsewave-spot'+imgNum+'.png" alt="PulseWave - Audible for news." width="166" height="300"/>';
+        $('.bottom-left-image-link').html(img);
       }
 
       function toggleLightTheme() {
