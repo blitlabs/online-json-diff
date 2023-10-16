@@ -56,9 +56,7 @@
             <li>Qicheng Gao</li>
           </ul>
         </div>
-        <a class="bottom-left-image-link" href="https://www.kickstarter.com/projects/blit-labs/pulsewave-hear-the-news-in-your-own-way-every-day" title="PulseWave - Audible for news." target="_blank">
-
-        </a>
+        <a class="bottom-left-image-link" href="https://www.kickstarter.com/projects/blit-labs/pulsewave-hear-the-news-in-your-own-way-every-day" title="PulseWave - Audible for news." target="_blank"></a>
       </div>
     </div>
     <div class="diff-inputs">
@@ -130,8 +128,10 @@
 
       function initAd() {
         var imgNum = Math.floor(Math.random() * Math.floor(3)) + 1;
+        var ref = ['5c0way', '4e41pq', '3t6gmo'];
         var img = '<img src="/img/pulsewave-spot'+imgNum+'.png" alt="PulseWave - Audible for news." width="166" height="300"/>';
         $('.bottom-left-image-link').html(img);
+        $('.bottom-left-image-link').get(0).href = 'https://www.kickstarter.com/projects/blit-labs/pulsewave-hear-the-news-in-your-own-way-every-day?ref=' + (ref[imgNum - 1]);
       }
 
       function toggleLightTheme() {
