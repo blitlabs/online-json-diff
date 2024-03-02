@@ -118,8 +118,79 @@
     return $('body').hasClass('lighttheme');
   }
 
-  BackboneEvents.mixin(JsonInputView.prototype);
+  const URL_LIMIT = 4000;
+
+  function encodeData(diff) {
+    try {
+      const encoded = encodeURIComponent(diff)
+      if (encoded.length > URL_LIMIT) {
+        throw new Error(`Encoded data is too long (${encoded.length} characters)`)
+      }
+      return encoded
+    } catch (error) {
+      throw new Error(error.message || `Failed to encode data`)
+    }
+  }
+
+  function decodeData(encodedParam) {
+      if (!encodedParam) return undefined;
+      try {
+        return decodeURIComponent(encodedParam)
+      } catch (error) {
+        throw new Error(error.message || `Failed to decode data`)
+      }
+  }
+
+  async function copyToClipboard(text) {
+    if (navigator.clipboard) {
+      await navigator.clipboard.writeText(text);
+    } else {
+      const el = document.createElement('textarea');
+      el.value = text;
+      document.body.appendChild(el);
+      el.select();
+      document.execCommand('copy');
+      document.body.removeChild(el);
+    }
+  }
+
+  document.querySelector('#share-btn').addEventListener('click', async () => {
+    try {
+      const currentDiff = getCurrentDiff();
+      const encoded = encodeData(currentDiff);
+      const url = `${window.location.origin}${window.location.pathname}?d=${encoded}`;
+      await copyToClipboard(url);
+      alert('URL copied to clipboard');
+    } catch (error) {
+      alert(error.message || 'Failed to copy URL to clipboard');
+    }
+  })
+
+
   var currentDiff = localStorage.getItem('current-diff') && JSON.parse(localStorage.getItem('current-diff'));
+
+
+  // Load data from url if present
+  const urlData = new URLSearchParams(window.location.search).get("d");
+
+  if (urlData) {
+    try {
+      const decoded = decodeData(urlData);
+      const urlDiff = JSON.parse(decoded);
+
+      if (urlDiff && (urlDiff.left || urlDiff.right)) {
+        currentDiff = urlDiff;
+
+        saveDiff(JSON.stringify(currentDiff));
+      }
+    } catch(error) {
+      console.error('Failed to load data from URL', error);
+    } finally {
+      window.history.replaceState({}, document.title, window.origin);
+    }
+  }
+
+  BackboneEvents.mixin(JsonInputView.prototype);
 
   var leftInputView = new JsonInputView(document.getElementById('json-diff-left'), currentDiff && currentDiff.left);
   var rightInputView = new JsonInputView(document.getElementById('json-diff-right'), currentDiff && currentDiff.right);
@@ -180,9 +251,9 @@
     });
   }
 
-  function saveDiff() {
+  function saveDiff(diff) {
     if (!localStorage.getItem('dont-save-diffs')) {
-      var currentDiff = getCurrentDiff();
+      var currentDiff = diff || getCurrentDiff();
       localStorage.setItem('current-diff', currentDiff);
     }
   }

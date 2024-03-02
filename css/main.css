@@ -142,6 +142,13 @@ h2 {
   top: 3px;
 }
 
+#share-btn {
+  display: inline-block;
+  position: relative;
+  top: -4px;
+  cursor: pointer;
+}
+
 .left-panel {
   width: 200px;
   height: calc(100% - 48px);
