@@ -158,7 +158,7 @@
     try {
       const currentDiff = getCurrentDiff();
       const encoded = encodeData(currentDiff);
-      const url = `${window.location.origin}${window.location.pathname}?d=${encoded}`;
+      const url = `${window.location.origin}?d=${encoded}`;
       await copyToClipboard(url);
       alert('URL copied to clipboard');
     } catch (error) {
