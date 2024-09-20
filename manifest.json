@@ -1,0 +1,24 @@
+{
+  "id": "online-json-diff",
+  "name": "Online JSON Diff",
+  "short_name": "JSON DIff",
+  "description": "Online JSON Compare Diff Finder",
+  "start_url": "https://www.json-diff.com",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#000000",
+  "icons": [
+    {
+      "purpose": "any",
+      "src": "/img/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "purpose":"maskable",
+      "src": "/img/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
