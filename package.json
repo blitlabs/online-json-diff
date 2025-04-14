@@ -24,6 +24,6 @@
   },
   "homepage": "https://github.com/justspamjustin/online-json-diff#readme",
   "devDependencies": {
-    "serve": "^11.3.2"
+    "serve": "^14.2.1"
   }
 }
